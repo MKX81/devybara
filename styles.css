@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 main {
   max-width: 1200px;    
   margin: 0 auto;      /* Centrerar blocket horisontellt */
-  padding: 2rem 1rem;  /* Lite luft runt innehållet */
+  padding: 1rem;  /* Lite luft runt innehållet */
   box-sizing: border-box; /* Säkerställer att padding inte ökar bredden */
 
 }
@@ -115,6 +115,7 @@ main {
 /* ABOUT */
 /* Flexbox: bild + text */
 .about-wrapper {
+  background-color: #FFE4E1;
   display: flex;
   max-width: 1200px;
   gap: 2rem;
