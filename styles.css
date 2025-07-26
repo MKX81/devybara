@@ -75,59 +75,60 @@ main {
 
 /* ABOUT */
 .about-container {
+  margin-top: 3rem;
   display: flex;
-  align-items: center;
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 3rem 2rem 6rem; /* extra paddning till vänster så bilden kan gå in där */
-  position: relative;
+  padding: 2rem;
+  gap: 2rem; /* lite mellanrum mellan bild och text */
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.about-image-bg {
-  position: absolute;
-  left: 1rem;   /* justera hur långt in den ska gå */
-  width: 400px;
-  height: 400px;
-  background-image: url('images/Me_round_profile_pic.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 1;
+.about-image {
+  flex: 0 0 40%;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* så bilden fyller behållaren fint */
+  border-radius: 8px; /* valfritt, lite rundade hörn */
 }
 
 .about-text {
-  flex: 1;
-  position: relative; /* så texten ligger ovanpå bilden */
+  flex: 1; /* tar resterande 60% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: #333;
-  z-index: 2;
-  margin-left: 2rem; /* flytta texten lite över bilden */
-  max-width: 500px;  /* maxbredd så det inte blir för brett */
 }
-
 
 .cv-link {
   display: inline-block;
   margin-top: 1rem;
-  background: transparent;
-  color: #fff;
+  background-color: #333;
+  color: whitesmoke;
   padding: 0.6rem 1rem;
   border-radius: 5px;
-  border: 0.1rem solid #fff;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  width: fit-content;
+  transition: all 0.3s ease;
 }
 
 .cv-link:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.1);
-}
+background-color: #444;
+color: yellow;}
 
-/* Skills-listan under */
+
+
+/* Skills */
 .skills-container {
+  margin-top: 3rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -136,22 +137,23 @@ main {
 /* Varje skill-box */
 .skill {
   background-color: #fff;
-  color: #2d243b;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  color: #333;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: bold;
+  gap: 0.4rem;
+  font-weight: 600;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .skill .level {
-  background: #eee;
+  background:lightyellow;
+  color: 333;
   padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  border-radius: 30px;
   font-size: 0.8rem;
-  font-weight: normal;
+  font-weight: 300;
 }
 
 
