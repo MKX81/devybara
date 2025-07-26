@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: "Noto Serif", serif;
-  background-color: #f4f4f4;
+  background-color: white
   color: #333;
 }
 
@@ -17,22 +17,33 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Sans", sans-serif;
 }
 
+/* MAIN */
+
+main {
+  max-width: 900px;    
+  margin: 0 auto;      /* Centrerar blocket horisontellt */
+  padding: 2rem 1rem;  /* Lite luft runt innehållet */
+  box-sizing: border-box; /* Säkerställer att padding inte ökar bredden */
+
+}
+
+
 /* === HEADER === */
 .main-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
-  background-color: transparent;
   display: flex;
+  background-color: lightblue;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem 2rem;
   z-index: 1000;
-  transition: background-color 0.3s ease;
+  position: relative;
+  transition: background-color 0.4s;
 }
 
 .main-header:hover {
-  background-color: #333;
+
 }
 
 .home-icon {
@@ -40,6 +51,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5rem;
   text-decoration: none;
   transition: color 0.3s;
+  z-index: 2;
 }
 
 .home-icon:hover {
@@ -47,6 +59,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 1.5rem;
   color: #fff;
   margin: 0;
@@ -58,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
   color: yellow;
 }
 
+/* ABOUT */
 #about {
   width: 100%;
   min-height: 100vh;
@@ -273,6 +289,7 @@ copyright-text {
 
 .quote-track {
   display: flex;
+  text-align: center;
   transition: transform 0.5s ease-in-out;
   /* bredden sätts dynamiskt, men kan vara auto */
 }
@@ -285,6 +302,11 @@ copyright-text {
   transition: opacity 0.3s ease;
 }
 
+.quote-soft {
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style:italic;
+}
 .quote.focus {
   opacity: 1;
   font-weight: bold;
