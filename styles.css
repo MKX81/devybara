@@ -116,24 +116,30 @@ main {
 /* Flexbox: bild + text */
 .about-wrapper {
   display: flex;
-  flex-wrap: wrap;
   max-width: 1200px;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 1rem;
   gap: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  align-items: flex-start;
 }
 
-/* Bild till vänster */
 .about-image {
   flex: 0 0 40%;
+  max-width: 40%;
 }
 
 .about-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border-radius: 1rem;
+}
+
+.about-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* Text + CV-länk till höger */
