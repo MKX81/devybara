@@ -1,0 +1,359 @@
+body {
+  margin: 0;
+  font-family: "Noto Serif", serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans", sans-serif;
+}
+
+header {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/** FONTS **/
+
+.noto-emoji {
+  font-family: "Noto Emoji", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.noto-sans-h {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.noto-serif-b {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/** ABOUT ME **/
+.about-me {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.about-content {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  gap: 2rem;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 300px;
+}
+
+.skill {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.about-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text h2 {
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  color: #333;
+  font-family: 'Noto Serif', serif;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #1e1e1e;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  max-width: fit-content;
+}
+
+.btn:hover {
+  background-color: #444;
+}
+
+/* Responsiv anpassning */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image,
+  .skills-container {
+    max-width: 100%;
+  }
+
+  .about-text {
+    flex: unset;
+    text-align: center;
+  }
+
+  .about-text p {
+    margin-bottom: 1.2rem;
+  }
+}
+
+
+/** PROJECTS **/
+
+.projects-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.projects-section h2 {
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Noto Serif', serif;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.project-card p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #eee;
+  color: #555;
+  border-radius: 15px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.6rem 1.2rem;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #444;
+}
+
+@media (max-width: 400px) {
+  .project-card img {
+    height: 120px; /* mindre bilder på riktigt små skärmar */
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/** QUOTES **/
+.quote-carousel {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.quote-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.quote {
+  flex: 0 0 33.3333%;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  background: transparent;
+  border-radius: 10px;
+  opacity: 0.2;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.quote-soft {
+  font-style: italic;
+  font-weight: 300;
+  color: #333;
+  font-size: 0.8rem;
+}
+
+.quote.focus {
+  background: transparent;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #ccc;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.project {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/** FOOTER **/
+
+footer {
+  background-color: #1e1e1e;
+  padding: 1rem 0;
+  text-align: center;
+  color: #ccc;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.social-footer a {
+  color: #ccc;
+  margin: 0 1rem;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-footer a:hover {
+  color: #fff;
+}
+
+copyright-text {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+}
