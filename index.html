@@ -4,134 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thiago Sena</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <header>
-    <h1>Thiago Sena</h1>
-    <p>Crafting Immersive Worlds</p>
+  <header class="main-header">
+    <a href="#" class="home-icon"><i class="fas fa-home"></i></a>
+    <h1 class="site-title">Thiago Sena</h1>
   </header>
+
   <main>
-  <section class="about-me">
-  <div class="about-content">
-    <div class="about-image">
-      <img src="images/Me_round_profile_pic.png" alt="portrait of Thiago" />
-      <div class="skills-container">
-      <div class="skill-tag">
-        <i class="fas fa-code skill-icon"></i>
-        <span class="skill-name">C++</span>
-        <span class="skill-level">Expert</span>
+
+    <section id="about">
+      <div class="about-container">
+        <div class="about-image">
+          <img src="images/Me_round_profile_pic.png" alt="Portrait of Thiago" />
+          <div class="skills-container">
+            <div class="skill">
+              <i class="fas fa-code"></i> C++
+              <span class="level">Expert</span>
+            </div>
+            <div class="skill">
+              <i class="fas fa-gamepad"></i> Unity
+              <span class="level">Intermediate</span>
+            </div>
+            <div class="skill">
+              <i class="fas fa-globe"></i> Web
+              <span class="level">Beginner</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>I'm Thiago, a passionate XR developer</p>
+          <a href="path/to/your-cv.pdf" target="_blank" class="cv-link">View my complete CV</a>
+        </div>
       </div>
-    
-      <div class="skill-tag">
-        <i class="fas fa-gamepad skill-icon"></i>
-        <span class="skill-name">Unity</span>
-        <span class="skill-level">Intermediate</span>
+    </section>
+
+    <section class="quote-carousel">
+      <div class="quote-track" id="quoteTrack">
+        <div class="quote">“You are a person who likes to understand the whole process <br /><span class="quote-soft">AstraZeneca colleague</span></div>
+        <div class="quote">“I really like your laugh and you bring to every team that you work with” <br /><span class="quote-soft">Former manager</span></div>
+        <div class="quote">“I admire how creative and fast learner you are”<br /><span class="quote-soft">AstraZeneca colleague</span></div>
+        <div class="quote">“Thiago, you are the perfect balance between hard and soft skills”<br /><span class="quote-soft">XR Teammate</span></div>
+        <div class="quote">“I'm impressed of how pedagogical you are. Everything seems easy when you explain.”<br /><span class="quote-soft">AstraZeneca colleague in training</span></div>
       </div>
-    
-      <div class="skill-tag">
-        <i class="fas fa-globe skill-icon"></i>
-        <span class="skill-name">Web</span>
-        <span class="skill-level">Beginner</span>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <img src="images/IMG_3398.jpg" alt="Foxio" />
+          <h3>Virtual Reality Game</h3>
+          <p>A VR game developed with Unity focusing on immersive experience.</p>
+          <div class="tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">SteamVR</span>
+          </div>
+          <a href="project1.html" class="btn">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <img src="images/project2.jpg" alt="Project 2 screenshot" />
+          <h3>Physics Engine</h3>
+          <p>Custom-built physics engine using C++ for realistic simulations.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">Game Dev</span>
+            <span class="tag">OpenGL</span>
+          </div>
+          <a href="project2.html" class="btn">View Project</a>
+        </div>
+
+        <!-- More projects if needed -->
+
       </div>
-    </div>
-        
-    </div>
-    <div class="about-text">
-      <p>I'm Thiago, a passionate XR developer</p>
-      <a href="path/till/ditt-cv.pdf" target="_blank" class="btn">View my complete CV</a>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="quote-carousel">
-<div class="quote-track" id="quoteTrack">
-  <div class="quote">“You are a person who likes to understand the whole process <br><span class="quote-soft">AstraZeneca colleague</span></div>
-  <div class="quote">“I really like your laugh and you bring to every team that you work with” <br><span class="quote-soft">Former manager</span></div>
-  <div class="quote">“I admire how creative and fast learner you are”<br><span class="quote-soft">AstraZeneca colleague</span></div>
-  <div class="quote">“Thiago, you are the perfect balance between hard and soft skills”<br><span class="quote-soft">XR Teammate</span></div>
-  <div class="quote">“I'm impressed of how pedagogical you are. Everything seems easy when you explain.”<br><span class="quote-soft">AstraZeneca colleague in training</span></div>
-
-  
-</div>
-</section>
-  <section id="projects" class="projects-section">
-  <h2>My Projects</h2>
-  <div class="projects-grid">
-
-    <div class="project-card">
-     <img src="images/IMG_3398.jpg" alt="Foxio" />
-      <h3>Virtual Reality Game</h3>
-      <p>A VR game developed with Unity focusing on immersive experience.</p>
-      <div class="tags">
-        <span class="tag">Unity</span>
-        <span class="tag">C#</span>
-        <span class="tag">SteamVR</span>
-      </div>
-      <a href="project1.html" class="btn">View Project</a>
-    </div>
-
-    <div class="project-card">
-      <img src="images/project2.jpg" alt="Project 2 screenshot" />
-      <h3>Physics Engine</h3>
-      <p>Custom-built physics engine using C++ for realistic simulations.</p>
-      <div class="tags">
-        <span class="tag">C++</span>
-        <span class="tag">Game Dev</span>
-        <span class="tag">OpenGL</span>
-      </div>
-      <a href="project2.html" class="btn">View Project</a>
-    </div>
-
-    <div class="project-card">
-    <img src="images/project2.jpg" alt="Project 2 screenshot" />
-    <h3>Physics Engine</h3>
-    <p>Custom-built physics engine using C++ for realistic simulations.</p>
-    <div class="tags">
-      <span class="tag">C++</span>
-      <span class="tag">Game Dev</span>
-      <span class="tag">OpenGL</span>
-    </div>
-    <a href="project2.html" class="btn">View Project</a>
-  </div>
-
-    <!-- Lägg till fler projekt här på samma sätt -->
-
-  </div>
-</section>
-
- 
-  
   </main>
 
   <footer>
-  <div class="social-footer">
-  <a href="https://github.com/ditt-anvandarnamn" target="_blank" aria-label="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://linkedin.com/in/ditt-anvandarnamn" target="_blank" aria-label="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="mailto:din.email@example.com" aria-label="E-post">
-    <i class="fas fa-envelope"></i>
-  </a>
-  <a href="https://wa.me/ditttelefonnummer" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-<div class="copyright-text">
-&copy; 2025 Thiago Sena
-</div>
+    <div class="social-footer">
+      <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:your.email@example.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://wa.me/yourphonenumber" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <div class="copyright-text">&copy; 2025 Thiago Sena</div>
   </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
 
   <script src="script.js"></script>
 </body>
