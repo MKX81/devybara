@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: "Noto Serif", serif;
-  background-color: white
+  background-color: white;
   color: #333;
 }
 
@@ -34,7 +34,7 @@ main {
   top: 0;
   width: 100%;
   display: flex;
-  background-color: lightblue;
+  background-color: #333;
   align-items: center;
   padding: 1rem 2rem;
   z-index: 1000;
@@ -74,63 +74,56 @@ main {
 }
 
 /* ABOUT */
-#about {
-  width: 100%;
-  min-height: 100vh;
-  padding: 2rem;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #333;
-}
-
-/* Block med bild och text sida vid sida */
 .about-container {
   display: flex;
-  flex-wrap: wrap; /* så att det funkar på små skärmar */
   align-items: center;
-  margin-bottom: 2rem;
-}
-
-/* Bild till vänster */
-.about-image {
-  flex: 0 0 300px; /* fix bredd */
-  margin-right: 2rem;
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 50%;
-  display: block;
-}
-
-/* Textblock till höger */
-.about-text {
-  flex: 1;
-  padding: 0.5rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 3rem 2rem 6rem; /* extra paddning till vänster så bilden kan gå in där */
+  position: relative;
   background-color: #fff;
   border-radius: 8px;
-  min-width: 250px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Länk till CV */
+.about-image-bg {
+  position: absolute;
+  left: 1rem;   /* justera hur långt in den ska gå */
+  width: 400px;
+  height: 400px;
+  background-image: url('images/Me_round_profile_pic.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.about-text {
+  flex: 1;
+  position: relative; /* så texten ligger ovanpå bilden */
+  color: #333;
+  z-index: 2;
+  margin-left: 2rem; /* flytta texten lite över bilden */
+  max-width: 500px;  /* maxbredd så det inte blir för brett */
+}
+
+
 .cv-link {
   display: inline-block;
   margin-top: 1rem;
   background: transparent;
-  color: #333;
+  color: #fff;
   padding: 0.6rem 1rem;
   border-radius: 5px;
-  border: 0.1rem solid #333;
+  border: 0.1rem solid #fff;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .cv-link:hover {
-  backdrop-filter: blur(1px);
   transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Skills-listan under */
