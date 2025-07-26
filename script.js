@@ -39,13 +39,22 @@ function updateCarousel(animated = true) {
   // Uppdatera fokusklass
   quotes.forEach((quote, index) => {
     quote.classList.remove('focus');
-    if (index === currentIndex + 1) {
+    if (index === currentIndex +1) {
       quote.classList.add('focus');
     }
   });
 }
 
-// Starta karusellen
+//Hamburgermeny
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+
+// Starta karusell (citat)
 updateCarousel();
 
 setInterval(() => {
