@@ -117,11 +117,12 @@ main {
 .about-wrapper {
   display: flex;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 1200px;
   overflow: hidden;
   box-sizing: border-box;
   padding: 1rem;
   gap: 2rem;
+  border: 1px solid red;
 }
 
 /* Bild till vänster */
