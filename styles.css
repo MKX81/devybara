@@ -29,43 +29,24 @@ main {
 
 
 /* === HEADER === */
+/* === HEADER === */
 .main-header {
-  position: absolute;
-  top: 0;
-  width: 100%;
   display: flex;
-  background-color: #333;
+  justify-content: space-between;
   align-items: center;
+  background-color: #333;
   padding: 1rem 2rem;
-  z-index: 1000;
   position: relative;
-  transition: background-color 0.4s;
+  z-index: 1000;
 }
 
-.main-header:hover {
-
-}
-
-.home-icon {
-  color: #fff;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: color 0.3s;
-  z-index: 2;
-}
-
-.home-icon:hover {
-  color: yellow;
-}
-
+/* Vänster: Namn */
 .site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 1.5rem;
   color: #fff;
-  margin: 0;
   font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  font-weight: bold;
   transition: color 0.3s;
 }
 
@@ -73,58 +54,115 @@ main {
   color: yellow;
 }
 
-/* ABOUT */
-.about-container {
-  margin-top: 3rem;
+/* Nav-länkar */
+.nav-links {
   display: flex;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  gap: 2rem; /* lite mellanrum mellan bild och text */
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  gap: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: yellow;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* RESPONSIV DESIGN */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;      /* Tar hela bredden */
+    height: 30vh;     /* Höjden på menyn, justera efter behov */
+    background-color: #333;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+    transform: translateY(-100%); /* Gömmen ovanför */
+    z-index: 9999;
+    box-sizing: border-box;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);    /* Menyn syns */
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+
+
+/* ABOUT */
+/* Flexbox: bild + text */
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+/* Bild till vänster */
 .about-image {
   flex: 0 0 40%;
+  max-width: 40%;
 }
 
 .about-image img {
   width: 100%;
   height: auto;
-  display: block;
-  object-fit: cover; /* så bilden fyller behållaren fint */
-  border-radius: 8px; /* valfritt, lite rundade hörn */
+  border-radius: 10px;
 }
 
+/* Text + CV-länk till höger */
 .about-text {
-  flex: 1; /* tar resterande 60% */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  color: #333;
+  gap: 1rem;
 }
 
+/* Länk till CV */
 .cv-link {
   display: inline-block;
-  margin-top: 1rem;
   background-color: #333;
   color: whitesmoke;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 1rem;
   font-weight: 500;
+  font-size: 1rem;
   width: fit-content;
   transition: all 0.3s ease;
 }
 
 .cv-link:hover {
-background-color: #444;
-color: yellow;}
-
-
+  background-color: #555;
+  color: #ffda44;
+  transform: scale(1.03);
+}
 
 /* Skills */
 .skills-container {
@@ -134,11 +172,10 @@ color: yellow;}
   gap: 1rem;
 }
 
-/* Varje skill-box */
 .skill {
   background-color: #fff;
   color: #333;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -148,12 +185,12 @@ color: yellow;}
 }
 
 .skill .level {
-  background:lightyellow;
-  color: 333;
-  padding: 0.2rem 0.5rem;
+  background: lightyellow;
+  color: #333;
+  padding: 0.2rem 0.6rem;
   border-radius: 30px;
   font-size: 0.8rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 
@@ -189,7 +226,7 @@ color: yellow;}
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
 }
 
 .project-card img {
@@ -273,9 +310,9 @@ copyright-text {
 /* CITAT */
 
 .quote-carousel {
+  margin-top: 3rem;
   width: 100%;
   overflow: hidden;
-  margin: 2rem 0;
   background: #fff;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
