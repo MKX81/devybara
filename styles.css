@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 /* MAIN */
 
 main {
-  max-width: 100%;    
+  max-width: 1200px;    
   margin: 0 auto;      /* Centrerar blocket horisontellt */
   padding: 2rem 1rem;  /* Lite luft runt innehållet */
   box-sizing: border-box; /* Säkerställer att padding inte ökar bredden */
@@ -127,8 +127,7 @@ main {
 
 /* Bild till vänster */
 .about-image {
-  flex: 0 0 40%;
-  max-width: 40%;
+  flex: 0 0 20%;
   border: 1px solid red;
 }
 
