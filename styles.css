@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 /* === BODY === */
 body {
   margin: 0;
@@ -51,37 +58,38 @@ h1, h2, h3, h4, h5, h6 {
   color: yellow;
 }
 
-/* === ABOUT SECTION (including skills) === */
 #about {
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
-  position: relative;
   background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%232d243b' fill-opacity='0.1'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #333;
 }
 
+/* Block med bild och text sida vid sida */
 .about-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* så att det funkar på små skärmar */
   align-items: center;
   margin-bottom: 2rem;
 }
 
-.about-image img {
-  max-width: 300px;
-  width: 100%;
-  border-radius: 50%;
-  border: 1px solid #333;
+/* Bild till vänster */
+.about-image {
+  flex: 0 0 300px; /* fix bredd */
   margin-right: 2rem;
 }
 
+.about-image img {
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Textblock till höger */
 .about-text {
   flex: 1;
   padding: 0.5rem 1rem;
@@ -91,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Länk till CV */
 .cv-link {
   display: inline-block;
   margin-top: 1rem;
@@ -108,12 +117,14 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
+/* Skills-listan under */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
+/* Varje skill-box */
 .skill {
   background-color: #fff;
   color: #2d243b;
@@ -133,6 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8rem;
   font-weight: normal;
 }
+
 
 /* === PROJECTS SECTION === */
 .projects-section {
@@ -246,6 +258,38 @@ copyright-text {
   font-size: 0.9rem;
   color: #888;
 }
+
+/* CITAT */
+
+.quote-carousel {
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.quote-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* bredden sätts dynamiskt, men kan vara auto */
+}
+
+.quote {
+  flex: 0 0 calc(100% / 3); /* 3 synliga citat */
+  padding: 0 1rem;
+  box-sizing: border-box;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.quote.focus {
+  opacity: 1;
+  font-weight: bold;
+}
+
 
 /* === MEDIA QUERIES === */
 @media (max-width: 600px) {
