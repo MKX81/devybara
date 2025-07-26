@@ -129,6 +129,7 @@ main {
 .about-image {
   flex: 0 0 40%;
   max-width: 40%;
+  border: 1px solid red;
 }
 
 .about-image img {
@@ -144,6 +145,7 @@ main {
   flex-direction: column;
   gap: 1rem;
   min-width: 0;
+  border: 1px solid red;
 }
 
 /* Länk till CV */
