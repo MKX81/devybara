@@ -56,3 +56,19 @@ if (hero) {
     });
   }
 }
+// === Hamburgermeny ===
+const hamburger = document.getElementById("hamburger");
+const mobileLinks = document.getElementById("mobileLinks");
+
+if (hamburger && mobileLinks) {
+  hamburger.addEventListener("click", () => {
+    mobileLinks.classList.toggle("active");
+  });
+}
+
+const links = mobileLinks.querySelectorAll("a");
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    mobileLinks.classList.remove("active");
+  });
+});
