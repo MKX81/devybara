@@ -1,75 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const knapp = document.getElementById("kontaktKnapp");
-  const info = document.getElementById("kontaktInfo");
+// === Hero bildspel ===
+const hero = document.getElementById("hero");
 
-  knapp.addEventListener("click", () => {
-    if (info.style.display === "none") {
-      info.style.display = "block";
-      knapp.textContent = "Dölj kontaktinfo";
-    } else {
-      info.style.display = "none";
-      knapp.textContent = "Visa kontaktinfo";
-    }
-  });
-});
+if (hero) {
+  const images = JSON.parse(hero.dataset.images);
+  
+  const bg1 = hero.querySelector(".hero-bg1");
+  const bg2 = hero.querySelector(".hero-bg2");
 
-const track = document.getElementById('quoteTrack');
-const visibleCount = 3;
-let quotes = Array.from(document.querySelectorAll('.quote'));
-let currentIndex = 0;
+  let currentIndex = 0;
+  let isBg1Active = true;
+  let isAnimating = false;
 
-// Steg 1: Klona de första citaten och lägg dem i slutet
-for (let i = 0; i < visibleCount; i++) {
-  const clone = quotes[i].cloneNode(true);
-  track.appendChild(clone);
-}
+  // Init: visa första bilden på bg1
+  bg1.style.backgroundImage = `url("${images[currentIndex]}")`;
+  bg1.style.transform = 'translateX(0)';
+  bg2.style.transform = 'translateX(100%)';
 
-// Uppdatera listan efter kloning
-quotes = Array.from(document.querySelectorAll('.quote'));
+  function slideNext() {
+    if (isAnimating) return;
+    isAnimating = true;
 
-function updateCarousel(animated = true) {
-  if (animated) {
-    track.style.transition = 'transform 0.5s ease-in-out';
-  } else {
-    track.style.transition = 'none';
-  }
+    const nextIndex = (currentIndex + 1) % images.length;
 
-  track.style.transform = `translateX(-${currentIndex * (100 / visibleCount)}%)`;
+    const incomingBg = isBg1Active ? bg2 : bg1;
+    const outgoingBg = isBg1Active ? bg1 : bg2;
 
-  // Uppdatera fokusklass
-  quotes.forEach((quote, index) => {
-    quote.classList.remove('focus');
-    if (index === currentIndex +1) {
-      quote.classList.add('focus');
-    }
-  });
-}
+    incomingBg.style.backgroundImage = `url("${images[nextIndex]}")`;
+    incomingBg.style.transform = 'translateX(100%)';
 
-//Hamburgermeny
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-
-
-// Starta karusell (citat)
-updateCarousel();
-
-setInterval(() => {
-  currentIndex++;
-
-  // När vi når det sista *klonade* citatet
-  if (currentIndex > quotes.length - visibleCount) {
-    updateCarousel(true); // animera sista hoppet
-
-    // Efter att animationen är klar (0.5s), hoppa tillbaka utan animation
+    // Start animation
     setTimeout(() => {
-      currentIndex = 0;
-      updateCarousel(false);
-    }, 500);
-  } else {
-    updateCarousel(true);
+      outgoingBg.style.transform = 'translateX(-100%)';
+      incomingBg.style.transform = 'translateX(0)';
+    }, 20);
+
+    incomingBg.addEventListener('transitionend', () => {
+      currentIndex = nextIndex;
+      isBg1Active = !isBg1Active;
+      isAnimating = false;
+    }, { once: true });
   }
-}, 5000);
+
+  // Automatisk slide var 5:e sekund
+  setInterval(slideNext, 5000);
+
+  // === Scroll-funktion för pilen ===
+  const scrollIndicator = document.querySelector(".scroll-down-indicator");
+
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener("click", () => {
+      const nextSection = document.querySelector("section:nth-of-type(2)");
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+}
