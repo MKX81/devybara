@@ -1,21 +1,26 @@
-*,
-*::before,
-*::after {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-
-/* === BODY === */
-body {
+html, body {
   margin: 0;
-  font-family: "Noto Serif", serif;
-  background-color: white;
-  color: #333;
+  padding: 0;
+  color: #333
+  font-family: "Noto Sans", serif;
+  background: red; /* TA BORT */
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Sans", sans-serif;
+  color: #333;
 }
+
+p {
+    font-family: "Noto Serif", serif;
+    color: #333;
+  }
 
 /* MAIN */
 
@@ -26,86 +31,208 @@ main {
 
 }
 
-/* === HEADER === */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
+/* === DESKTOP: GLASS HEADER === */
+.glass-header {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-header:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Desktop-länkar */
+.desktop-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.desktop-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
   position: relative;
+  padding: 0.3rem 0.5rem;
+}
+
+.desktop-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+
+.desktop-links a:hover::after {
+  width: 100%;
+}
+
+/* === MOBIL: HAMBURGARE & FULLSKÄRMSMENY === */
+.mobile-nav {
+  display: none;
+}
+
+.hamburger {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1100;
+}
+
+/* Mobil-länkar (dolda som standard) */
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 1000;
 }
 
-/* Vänster: Namn */
-.site-title {
-  font-size: 1.5rem;
-  color: #fff;
-  font-family: 'Noto Sans', sans-serif;
-  margin: 0;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.site-title:hover {
-  color: yellow;
-}
-
-/* Nav-länkar */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: yellow;
-}
-
-/* Hamburger */
-.hamburger {
-  display: none;
+.mobile-links a {
   font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
   color: white;
-  cursor: pointer;
-  z-index: 1001;
 }
 
-/* RESPONSIV DESIGN */
+/* Visas när hamburgaren klickats */
+.mobile-links.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* === MEDIAQUERY: MOBILVERSION === */
 @media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;      /* Tar hela bredden */
-    height: 30vh;     /* Höjden på menyn, justera efter behov */
-    background-color: #333;
-    flex-direction: column;
-    padding: 1.5rem 2rem;
-    gap: 1.5rem;
-    transition: transform 0.3s ease;
-    transform: translateY(-100%); /* Gömmen ovanför */
-    z-index: 9999;
-    box-sizing: border-box;
+  .glass-header {
+    display: none; /* Dölj desktop-header */
   }
 
-  .nav-links.active {
-    transform: translateY(0);    /* Menyn syns */
-  }
-
-  .hamburger {
+  .mobile-nav {
     display: block;
   }
+}
+  
+
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #fff;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+  }
+
+/* HERO */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease-in-out;
+  will-change: transform;
+  z-index: 0;
+}
+
+.hero-bg1 {
+  z-index: 0;
+}
+
+.hero-bg2 {
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  padding: 0.5rem;
+  border-radius: 5rem;
+  width: 50%;
+}
+
+.hero-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0; /* förhindra att den krymper */
+}
+
+.hero-text h1 {
+  font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #000; /* eller vilken färg du vill */
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
 }
 
 
@@ -117,11 +244,12 @@ main {
   background-color: #FFE4E1;
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   gap: 2rem;
   padding: 1rem;
   box-sizing: border-box;
   align-items: flex-start;
+  border: solid 1px red;
 }
 
 .about-image {
@@ -205,23 +333,32 @@ main {
 }
 
 
-/* === PROJECTS SECTION === */
+/* === PROJECTS === */
+
+.projects-wrapper {
+    background-color: #555555;
+    padding: 1rem 0;
+    border: solid 1px red;
+    min-height: 100vh;
+  }
 .projects-section {
-  max-width: 900px;
-  margin: 3rem auto;
+  max-width: 1200px;
+  margin: 1rem auto;
   padding: 0 1rem;
   z-index: 2;
 }
 
-.projects-section h2 {
+.projects-section h1 {
+  font-size: 2.5rem;
   padding-bottom: 0.5rem;
+  text-align: center;
   margin-bottom: 1rem;
-  font-family: 'Noto Serif', serif;
+  font-family: "Winky Sans", sans-serif;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
@@ -242,7 +379,7 @@ main {
 
 .project-card img {
   width: 100%;
-  height: 160px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
