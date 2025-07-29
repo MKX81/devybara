@@ -2,14 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 1px solid red;
+
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  color: #333
+  color: #333;
   font-family: "Noto Sans", serif;
-  background: red; /* TA BORT */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,7 +32,7 @@ main {
 
 }
 
-/* === DESKTOP: GLASS HEADER === */
+/* === DESKTOP HEADER === */
 .glass-header {
   position: absolute;
   top: 1rem;
@@ -41,7 +42,7 @@ main {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
   border-radius: 1rem;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -54,11 +55,31 @@ main {
 
 .nav-content {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Desktop-länkar */
+.logo {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 5rem;
+  width: auto;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
 .desktop-links {
   display: flex;
   gap: 2rem;
@@ -79,7 +100,7 @@ main {
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #333;
+  background-color: orange;
   transition: width 0.3s ease;
 }
 
@@ -87,11 +108,26 @@ main {
   width: 100%;
 }
 
-/* === MOBIL: HAMBURGARE & FULLSKÄRMSMENY === */
+/* === MOBIL HEADER === */
 .mobile-nav {
   display: none;
+  position: relative;
+  padding: 1rem;
+  background-color: #333;
 }
 
+.mobile-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-logo img {
+  height: 5rem;
+  width: auto;
+}
+
+/* Hamburgaren */
 .hamburger {
   font-size: 1.8rem;
   cursor: pointer;
@@ -103,7 +139,7 @@ main {
   z-index: 1100;
 }
 
-/* Mobil-länkar (dolda som standard) */
+/* Mobil-länkar */
 .mobile-links {
   display: flex;
   flex-direction: column;
@@ -131,7 +167,6 @@ main {
   color: white;
 }
 
-/* Visas när hamburgaren klickats */
 .mobile-links.active {
   transform: translateY(0);
   visibility: visible;
@@ -139,17 +174,26 @@ main {
   pointer-events: auto;
 }
 
-/* === MEDIAQUERY: MOBILVERSION === */
+/* === MEDIA QUERY: MOBILVERSION === */
 @media (max-width: 768px) {
   .glass-header {
-    display: none; /* Dölj desktop-header */
+    display: none;  /* Dölj desktop-header på mobil */
   }
 
   .mobile-nav {
-    display: block;
+    display: block; /* Visa mobilmenyn */
+  }
+
+  .mobile-logo img {
+    height: 4rem;
+  }
+  
+  .mobile-nav {
+    justify-content: center;
   }
 }
-  
+
+/*PILAR NERÅT MED BOUNCE */
 
 .scroll-down-indicator {
     position: absolute;
@@ -205,12 +249,14 @@ main {
   position: relative;
   z-index: 10;
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 1.5rem;
   background-color: rgba(255, 255, 255, 0.35);
-  padding: 0.5rem;
+  padding: 1.5rem;
   border-radius: 5rem;
-  width: 50%;
+  max-width: 90vw;
+  width: 100%;
 }
 
 .hero-image {
@@ -235,7 +281,17 @@ main {
   color: #333;
 }
 
-
+@media (max-width: 768px) {
+  .hero-text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 90vw;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
 
 
 /* ABOUT */
@@ -506,5 +562,229 @@ copyright-text {
   .btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+  }
+}
+
+/* === PROJEKTSIDOR === */
+
+.hero-projects {
+  position: relative;
+  min-height: 100vh; /* se till att hero-sektionen tar hela höjden */
+  z-index: 1; /* lägre z-index än video-sektionen */
+  overflow: hidden;
+}
+
+.hero-projects-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: brightness(0.9);
+}
+
+.hero-projects-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.2); /* mjölkig vit ton */
+  z-index: 1;
+}
+
+.hero-projects-content {
+  margin-top: 10rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.hero-projects-content h1 {
+  margin-bottom: 2rem;
+  width: 50%;
+  border: 1px solid #000000;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: rgba(3, 1, 1, 0.82); /* valfri bakgrund */
+  border-radius: 2rem;
+  color: whitesmoke;
+  font-family: "Winky Sans", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+}
+
+/* === VIDEO-INBÄDDNING === */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9-ratio */
+  height: 0;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  max-width: 50%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === INFOBLOCK === */
+.project-info-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.info-block {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-block:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Mörkare, mindre transparent */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Valfri förstärkt skugga */
+}
+
+.info-block h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.info-block p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+}
+
+/* === MOBILANPASSNING === */
+@media (max-width: 768px) {
+  .hero-projects-content {
+    padding: 1.5rem;
+  }
+
+  .hero-projects-content h1 {
+    font-size: 2rem;
+  }
+
+  .project-info-blocks {
+    grid-template-columns: 1fr;
+  }
+
+  .info-block {
+    text-align: center;
+  }
+}
+/*VIDEOSEKTION*/
+
+.video-section {
+  max-width: 100%;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: "Noto Sans", sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: "Winky Sans", sans-serif;
+  color: #333;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 180px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border: none;
+}
+/*mobilanpassning*/
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-wrapper iframe {
+    height: 220px; /* kan justeras för bättre mobilhöjd */
+  }
+}
+
+/* ANPASSNING AV VIDEOBREDD */
+@media (max-width: 768px) {
+  .hero-projects-content h1,
+  .video-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* === BILDGALLERI-SEKTION === */
+.images-section {
+  max-width: 100%;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+}
+
+.images-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: "Winky Sans", sans-serif;
+  color: #333;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.image-grid img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* Mobilanpassning – kan anpassas ytterligare om du vill */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr;
   }
 }
