@@ -4,13 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thiago Sena</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -19,53 +15,82 @@
 </head>
 <body>
 
-<header class="main-header">
-  <h1 class="site-title">Thiago Sena</h1>
-
-  <nav class="nav-links" id="nav-links">
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About Me</a>
+ <!-- Mobilmeny -->
+<div class="mobile-nav">
+  <div class="mobile-logo">
+    <img src="images/Me_round_profile_pic.png" alt="Logo" />
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+    <i class="fas fa-bars"></i>
+  </div>
+  <nav class="mobile-links" id="mobileLinks">
+    <a href="index.html">Portfolio</a>
+    <a href="about.html">About Me</a>
     <a href="#contact">Contact</a>
   </nav>
+</div>
 
-  <div class="hamburger" id="hamburger">
-    ☰
+<!-- Desktopmeny -->
+<header class="glass-header-flow">
+  <div class="nav-content">
+    <div class="logo">
+      <img src="images/Me_round_profile_pic.png" alt="Logo" />
+    </div>
+    <nav class="desktop-links">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main>
-
-  <div class="about-wrapper">
-  <div class="about-image">
-    <img src="images/DSC02730.jpg" alt="Profilbild">
+  <div style="text-align:center;">
+    <h1>About me <i class="fa-solid fa-circle-info" style="color: rgb(0, 255, 166);"></i></h1>
   </div>
-
-  <div class="about-right">
-    <div class="about-text">
-      <h2>Hi, This is Thiago</h2>
-      <p>I am a dedicated XR developer...</p>
-      <a href="cv.pdf" class="cv-link" target="_blank" rel="noopener noreferrer">View my full CV</a>
+  <section class="about-wrapper">
+    <!-- Bild -->
+    <div class="about-image">
+      <img src="images/DSC02730.jpg" alt="Bild på mig">
     </div>
-
-    <div class="skills-container">
-      <!-- Alla skills här -->
-      <div class="skill"><i class="fas fa-code"></i> C++ <span class="level">Expert</span></div>
-      <div class="skill"><i class="fas fa-gamepad"></i> Unity <span class="level">Intermediate</span></div>
-      <div class="skill"><i class="fas fa-globe"></i> Web <span class="level">Beginner</span></div>
-      <div class="skill"><i class="fas fa-cogs"></i> Unreal Engine <span class="level">Intermediate</span></div>
-      <div class="skill"><i class="fas fa-tasks"></i> Project Managing <span class="level">Advanced</span></div>
-      <div class="skill"><i class="fas fa-database"></i> SQL <span class="level">Intermediate</span></div>
-      <div class="skill"><i class="fas fa-mobile-alt"></i> Mobile Development <span class="level">Beginner</span></div>
-      <div class="skill"><i class="fas fa-network-wired"></i> Networking <span class="level">Intermediate</span></div>
-      <div class="skill"><i class="fas fa-cloud"></i> Cloud Computing <span class="level">Beginner</span></div>
-      <div class="skill"><i class="fas fa-lock"></i> Cybersecurity <span class="level">Beginner</span></div>
-      <div class="skill"><i class="fas fa-brain"></i> AI / Machine Learning <span class="level">Intermediate</span></div>
-      <div class="skill"><i class="fas fa-paint-brush"></i> UI/UX Design <span class="level">Intermediate</span></div>
+  
+    <div class="about-right">
+  
+    
+      <div class="about-text">
+        <h2>My mission</h2>
+        <p>Jag är en passionerad utvecklare med erfarenhet av front-end och back-end. Jag gillar att skapa användarvänliga lösningar.</p>
+        <a href="#" class="cv-link">Ladda ner CV</a>
+      </div>
+  
+      <div class="about-text">
+        <h2>Skills</h2>
+      </div>
+      
+      <div class="skills-container">
+        <div class="skill"><i class="fas fa-code"></i> C++</div>
+        <div class="skill"><i class="fas fa-gamepad"></i> Unity</div>
+        <div class="skill"><i class="fas fa-globe"></i> Web</div>
+        <div class="skill"><i class="fas fa-cogs"></i> Unreal Engine</div>
+        <div class="skill"><i class="fas fa-tasks"></i> Project Managing</div>
+        <div class="skill"><i class="fas fa-database"></i> SQL</div>
+        <div class="skill"><i class="fas fa-mobile-alt"></i> Mobile Development</div>
+        <div class="skill"><i class="fas fa-network-wired"></i> Networking</div>
+        <div class="skill"><i class="fas fa-cloud"></i> Cloud Computing</div>
+        <div class="skill"><i class="fas fa-lock"></i> Cybersecurity</div>
+        <div class="skill"><i class="fas fa-brain"></i> AI / Machine Learning</div>
+        <div class="skill"><i class="fas fa-paint-brush"></i> UI/UX Design</div>
+      </div>
+  
     </div>
+  </section>
+  
+  <div style="text-align:center;">
+    <h1>What others say about me... <i class="fa-solid fa-comments" style="color: rgb(4, 152, 193)"></i></h1>
   </div>
-</div>
 
   <section class="quote-carousel">
+    
     <div class="quote-track" id="quoteTrack">
       <div class="quote">“You are a person who likes to understand the whole process <br /><span class="quote-soft">AstraZeneca colleague</span></div>
       <div class="quote">“I really like your laugh and you bring to every team that you work with” <br /><span class="quote-soft">Former manager</span></div>
@@ -74,22 +99,74 @@
       <div class="quote">“I'm impressed of how pedagogical you are. Everything seems easy when you explain.”<br /><span class="quote-soft">AstraZeneca colleague in training</span></div>
     </div>
   </section>
+
+  <div style="text-align:center;">
+    <h1>Contact me (we can at least have a coffee) <i class="fa-solid fa-mug-hot" style="color: brown"></i></h1>
+  </div>
+
+
+    <section class="contact-wrapper">
+      <form class="contact-form" action="#" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+    
+        <button type="submit">Send</button>
+        
+        <p id="confirmationMessage" class="confirmation-message">
+        Thank you for your message! I'll get back to you as soon as possible.
+      </p>
+      </form>
+
+      
+    
+      <div class="contact-info">
+        <h3>Where I can be found</h3>
+        <a href="https://linkedin.com/in/dittnamn" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/dittnamn" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-artstation"></i> ArtStation
+        </a>
+        <a href="https://linkedin.com/in/dittnamn" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:din.email@exempel.com">
+          <i class="fas fa-envelope"></i> E-post
+        </a>
+        <!-- Lägg till fler kontaktvägar här -->
+      </div>
+  </section>
+  
 </main>
 
 <footer>
   <div class="social-footer">
-    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+    <a
+      href="https://github.com/yourusername"
+      target="_blank"
+      aria-label="GitHub"
+    >
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+    <a
+      href="https://linkedin.com/in/yourusername"
+      target="_blank"
+      aria-label="LinkedIn"
+    >
       <i class="fab fa-linkedin"></i>
     </a>
     <a href="mailto:your.email@example.com" aria-label="Email">
       <i class="fas fa-envelope"></i>
     </a>
-    <a href="https://wa.me/yourphonenumber" target="_blank" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://www.artstation.com/yourusername" target="_blank" aria-label="ArtStation">
+     <i class="fa-brands fa-artstation"></i>
+   </a>
   </div>
   <div class="copyright-text">&copy; 2025 Thiago Sena</div>
 </footer>
