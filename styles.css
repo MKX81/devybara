@@ -10,16 +10,19 @@ html, body {
   padding: 0;
   color: #333;
   font-family: "Noto Sans", serif;
+  background-color: rgb(79, 79, 79);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Sans", sans-serif;
-  color: #333;
+  font-family: "Winky Sans", sans-serif;
+  letter-spacing: 0.1rem;
+  color: whitesmoke;
+  margin:1rem 0;
 }
 
 p {
     font-family: "Noto Serif", serif;
-    color: #333;
+    color: whitesmoke;
   }
 
 /* MAIN */
@@ -39,12 +42,12 @@ main {
   transform: translateX(-50%);
   width: fit-content;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(2px);
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .glass-header:hover {
@@ -73,9 +76,12 @@ main {
 .logo img {
   height: 5rem;
   width: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo img:hover {
+  filter: grayscale(0%);
   transform: scale(1.1);
 }
 
@@ -100,11 +106,84 @@ main {
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: orange;
+  background-color: #ffda44;
   transition: width 0.3s ease;
 }
 
 .desktop-links a:hover::after {
+  width: 100%;
+}
+
+/* Ny header-variant som är "i flödet" och ligger högst upp */
+.glass-header-flow {
+  position: static;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 2000px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: auto;    /* normalt z-index */
+  transition: all 0.5s ease;
+}
+
+/* Hover-effekt kan behållas */
+.glass-header-flow:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Behåll samma struktur som tidigare */
+.glass-header-flow .nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.glass-header-flow .logo img {
+  height: 5rem;
+  width: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.glass-header-flow .logo img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.glass-header-flow .desktop-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+
+.glass-header-flow .desktop-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  padding: 0.3rem 0.5rem;
+}
+
+.glass-header-flow .desktop-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffda44ge;
+  transition: width 0.3s ease;
+}
+
+.glass-header-flow .desktop-links a:hover::after {
   width: 100%;
 }
 
@@ -178,6 +257,10 @@ main {
 @media (max-width: 768px) {
   .glass-header {
     display: none;  /* Dölj desktop-header på mobil */
+  }
+
+  .glass-header-flow {
+    display: none;  /* Dölj desktopmenyn på mobil */
   }
 
   .mobile-nav {
@@ -292,20 +375,21 @@ main {
 /* ABOUT */
 /* Flexbox: bild + text */
 .about-wrapper {
-  background-color: #FFE4E1;
+  margin: 0 auto;
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  max-width: 2000px;
+  border-radius: 1rem;
   gap: 2rem;
   padding: 1rem;
   box-sizing: border-box;
   align-items: flex-start;
-  border: solid 1px red;
+  background-color: #3b3b3b;
 }
 
 .about-image {
   flex: 0 0 30%;
-  max-width: 30%;
+  max-width: 300px;
 }
 
 .about-image img {
@@ -318,6 +402,7 @@ main {
 
 .about-right {
   flex: 1;
+  color:whitesmoke;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -325,10 +410,10 @@ main {
 
 /* Text + CV-länk till höger */
 .about-text {
+  color: whitesmoke;
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
   gap: 1rem;
   min-width: 0;
 }
@@ -336,7 +421,7 @@ main {
 /* Länk till CV */
 .cv-link {
   display: inline-block;
-  background-color: #333;
+  background-color: #5a5a5a;
   color: whitesmoke;
   padding: 0.6rem 1.2rem;
   border-radius: 5px;
@@ -355,33 +440,184 @@ main {
 
 /* Skills */
 .skills-container {
-  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
+  max-width: 2000px;
+  margin: 0 auto;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .skill {
-  background-color: #fff;
-  color: #333;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
+  gap: 0.5rem;
+  background-color: #f0f0f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+  cursor: default;
 }
 
-.skill .level {
-  background: lightyellow;
-  color: #333;
-  padding: 0.2rem 0.6rem;
-  border-radius: 30px;
-  font-size: 0.8rem;
-  font-weight: 400;
+.skill i {
+  font-size: 1.1rem;
+  color: #666;
 }
+
+.skill:hover {
+  background-color: #dbeafe; /* ljus blå hover */
+}
+
+.level {
+  margin-left: auto;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* CONTACT*/
+.contact-wrapper {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: 2000px;
+  gap: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  align-items: flex-start;
+  border-radius: 2rem 2rem 0rem 0rem;
+  background-color: #3b3b3b;
+  color: whitesmoke;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.contact-form {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form button {
+  all: unset; /* Tar bort all inbyggd styling */
+  display: inline-block;
+  background-color: #5a5a5a;
+  color: whitesmoke;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  width: fit-content;
+  transition: all 0.3s ease;
+  cursor: pointer; /* För att få "pekaren" på hover */
+}
+
+.contact-form button:hover {
+  background-color: #555;
+  color: #ffda44;
+  transform: scale(1.03);
+}
+
+.confirmation-message {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #c8950a;
+  color: #333;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  opacity: 0;
+}
+
+.confirmation-message.show {
+  display: block;
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.confirmation-message.hide {
+  animation: fadeOutDown 0.3s ease-in forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+
+.contact-info {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+  color: whitesmoke;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #ffda44;
+}
+
+.contact-info i {
+  font-size: 1.3rem;
+}
+
 
 
 /* === PROJECTS === */
@@ -481,6 +717,8 @@ main {
 /* === FOOTER === */
 footer {
   background-color: #1e1e1e;
+  max-width: 2000px;
+  margin: 0 auto;
   padding: 1rem 0;
   text-align: center;
   color: white;
@@ -508,24 +746,31 @@ footer {
 /* CITAT */
 
 .quote-carousel {
-  margin-top: 3rem;
   width: 100%;
+  max-width: 2000px; 
+  margin: 0 auto;
   overflow: hidden;
-  background: #fff;
-  padding: 1rem;
+  background: transparent;
+  padding: 2rem 1rem;
+  background-color: #3b3b3b;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  border-radius: 1rem;
 }
 
 .quote-track {
   display: flex;
+  align-items: center;
   text-align: center;
   transition: transform 0.5s ease-in-out;
-  /* bredden sätts dynamiskt, men kan vara auto */
 }
 
 .quote {
-  flex: 0 0 calc(100% / 3); /* 3 synliga citat */
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 calc(100% / 3);
   padding: 0 1rem;
   box-sizing: border-box;
   opacity: 0.6;
@@ -782,3 +1027,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+
+
