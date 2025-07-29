@@ -16,53 +16,59 @@
 <body>
 
  <!-- Mobilmeny -->
-<div class="mobile-nav">
+ <div class="mobile-nav">
   <div class="mobile-logo">
-    <img src="images/Me_round_profile_pic.png" alt="Logo" />
+    <a href="index.html">
+      <img src="images/Me_round_profile_pic.png" alt="Logo" />
+    </a>
   </div>
   <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
     <i class="fas fa-bars"></i>
   </div>
   <nav class="mobile-links" id="mobileLinks">
-    <a href="index.html">Portfolio</a>
+    <a href="#my-project-scroll">My Projects</a>
     <a href="about.html">About Me</a>
     <a href="#contact">Contact</a>
   </nav>
 </div>
 
+
 <!-- Desktopmeny -->
 <header class="glass-header-flow">
   <div class="nav-content">
     <div class="logo">
-      <img src="images/Me_round_profile_pic.png" alt="Logo" />
+      <a href="index.html">
+        <img src="images/Me_round_profile_pic.png" alt="Logo" />
+      </a>
     </div>
+    
     <nav class="desktop-links">
-      <a href="index.html">Portfolio</a>
+      <a href="#my-project-scroll">My projects</a>
       <a href="about.html">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
-
-
     
 <main>
-  <section class="hero" id="hero" data-images='[
-  "images/jessica-lewis-thepaintedsquare-DeyfdybVQhA-unsplash.jpg",
-  "images/IMG_3398.jpg",
-  "images/ATOMICMATCH KV N LOGO-01.png"
-]'>
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
   
-  <div class="hero-bg hero-bg1"></div>
-  <div class="hero-bg hero-bg2"></div>
-
-  <div class="hero-text">
-      <h1>Hi, I'm Thiago</h1>
-      <h2>I create immersive virtual experiences for any project.</h2>
+    <div class="hero-text">
+        <h1>Hi, I'm Thiago</h1>
+        <h2>I create immersive virtual experiences for any project.</h2>
+    </div>
+  </section>
+  
+  <div class="scroll-down-wrapper" onclick="scrollToProjects()">
+    <p class="scroll-text">My projects</p>
+    <div class="scroll-down-indicator">
+      <i class="fa-solid fa-caret-down"></i>
+    </div>
   </div>
 </section>
  
-<div style="text-align: center;">
+<div id="my-project-scroll" style="text-align: center;">
   <h1>My Projects</h1>
 </div>
   <section class="projects-wrapper">
@@ -70,37 +76,51 @@
       <div class="projects-grid">
   
         <div class="project-card">
-          <img src="images/IMG_3398.jpg" alt="Foxio" />
-          <h3>Virtual Reality Game</h3>
-          <p>A VR game developed with Unity focusing on immersive experience.</p>
+          <img src="images/image (6).png" alt="Foxio" />
+          <h3>FOXIO</h3>
+          <p>Foxio is a gamified VR app intended to be used  for cognitive training for children and teens  with some focus and patience difficulties.</p>
           <div class="tags">
             <span class="tag">Unity</span>
             <span class="tag">C#</span>
-            <span class="tag">SteamVR</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Storytelling</span>
+            <span class="tag">Procreate</span>
+            <span class="tag">Miro/Notion</span>
+            <span class="tag">Project management</span>
+            <span class="tag">Agile</span>
           </div>
           <a href="foxio.html" class="btn">View Project</a>
         </div>
   
-        <div class="project-card">
+        <div class="project-card"">
           <img src="images/ATOMICMATCH KV N LOGO-01.png" alt="Atomic-Match" />
           <h3>Atomic Match</h3>
           <p>Chemistry XR game for high school students.</p>
           <div class="tags">
-            <span class="tag">C++</span>
-            <span class="tag">Game Dev</span>
-            <span class="tag">OpenGL</span>
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Storytelling</span>
+            <span class="tag">Procreate</span>
+            <span class="tag">Miro</span>
+            <span class="tag">Project management</span>
           </div>
           <a href="atomicmatch.html" class="btn">View Project</a>
         </div>
 
         <div class="project-card">
-          <img src="images/Screenshot 2025-01-31 at 09.00.01.png" alt="Umemuru Garden" />
+          <img src="images/Screenshot 2025-04-28 at 12.44.57.png" alt="Umemuru Garden" />
           <h3>Umemuru Garden</h3>
           <p>Tranquility and peace</p>
           <div class="tags">
-            <span class="tag">C++</span>
-            <span class="tag">Game Dev</span>
-            <span class="tag">OpenGL</span>
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">Maya</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Storytelling</span>
+            <span class="tag">Procreate</span>
+            <span class="tag">Miro</span>
+            <span class="tag">Project management</span>
           </div>
           <a href="umemurugarden.html" class="btn">View Project</a>
         </div>
@@ -153,30 +173,35 @@
 </main>
 <footer>
   <div class="social-footer">
-    <a
-      href="https://github.com/yourusername"
-      target="_blank"
-      aria-label="GitHub"
-    >
-      <i class="fab fa-github"></i>
-    </a>
-    <a
-      href="https://linkedin.com/in/yourusername"
-      target="_blank"
-      aria-label="LinkedIn"
-    >
+
+    <a href="https://www.linkedin.com/in/thiagosd/" target="_blank" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
     </a>
-    <a href="mailto:your.email@example.com" aria-label="Email">
+    <a href="mailto:thiagosenadantas@gmail.com" aria-label="Email">
       <i class="fas fa-envelope"></i>
     </a>
-    <a href="https://www.artstation.com/yourusername" target="_blank" aria-label="ArtStation">
+    <a href="https://github.com/devybara" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.artstation.com/artybara" target="_blank" aria-label="ArtStation">
      <i class="fa-brands fa-artstation"></i>
-   </a>
+   </a>   
   </div>
   <div class="copyright-text">&copy; 2025 Thiago Sena</div>
 </footer>
 
 <script src="script.js"></script>
+ <!-- AOS CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+ <!-- AOS JavaScript -->
+ <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+ <script>
+   AOS.init({
+     once: true,            // Kör animationer bara en gång
+     duration: 800,         // Hur lång tid varje animation tar
+     easing: 'ease-out',    // Rörelseeffekt
+     delay: 50             // Fördröjning
+   });
+ </script>
 </body>
 </html>
