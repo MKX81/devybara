@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
 
 }
 
@@ -38,7 +37,7 @@ main {
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%;
+  width: fit-content;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
   border-radius: 1rem;
@@ -56,19 +55,19 @@ main {
 .nav-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: center; /* centrerar hela raden */
+  gap: 3rem; /* avstånd mellan logga och länkar */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .logo {
-  position: absolute;
-  left: 1rem;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
+  /* kan lägga till padding eller margin om du vill */
 }
 
 .logo img {
@@ -82,6 +81,7 @@ main {
 
 .desktop-links {
   display: flex;
+  flex-wrap: nowrap;
   gap: 2rem;
 }
 
@@ -220,7 +220,7 @@ main {
 
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 50vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -246,25 +246,20 @@ main {
 }
 
 .hero-text {
-  position: relative;
+  position: absolute;
+  top: 60%;    /* flyttar blocket ner (justera % efter behov) */
+  left: 10%;   /* flyttar blocket lite åt vänster */
+  transform: translateY(-50%); /* justera vertikalt så det känns snyggt */
   z-index: 10;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
   background-color: rgba(255, 255, 255, 0.35);
-  padding: 1.5rem;
-  border-radius: 5rem;
-  max-width: 90vw;
-  width: 100%;
-}
-
-.hero-image {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  flex-shrink: 0; /* förhindra att den krymper */
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 90vw;
 }
 
 .hero-text h1 {
@@ -392,19 +387,18 @@ main {
 /* === PROJECTS === */
 
 .projects-wrapper {
-    background-color: #555555;
+    background-color: #3b3b3b;
     padding: 1rem 0;
-    border: solid 1px red;
-    min-height: 100vh;
   }
 .projects-section {
   max-width: 1200px;
   margin: 1rem auto;
   padding: 0 1rem;
-  z-index: 2;
+
 }
 
 .projects-section h1 {
+  color: white;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
   text-align: center;
@@ -489,7 +483,7 @@ footer {
   background-color: #1e1e1e;
   padding: 1rem 0;
   text-align: center;
-  color: #ccc;
+  color: white;
   font-family: 'Noto Sans', sans-serif;
 }
 
@@ -505,7 +499,7 @@ footer {
   color: #fff;
 }
 
-copyright-text {
+.copyright-text {
   margin-top: 0.75rem;
   font-size: 0.9rem;
   color: #888;
