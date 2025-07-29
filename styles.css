@@ -829,13 +829,13 @@ footer {
   background-size: cover;
   background-position: center;
   z-index: 0;
-  filter: brightness(0.9);
 }
 
 .hero-projects-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* behövs för Safari */
   z-index: 1;
 }
 
