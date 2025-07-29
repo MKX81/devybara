@@ -304,10 +304,13 @@ main {
 .hero {
   position: relative;
   min-height: 50vh;
+  max-width:2000px;
+  margin: 0 auto;
   overflow: hidden;
   display: flex;
   align-items: center;
   padding: 2rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .hero-bg {
@@ -329,16 +332,12 @@ main {
 }
 
 .hero-text {
-  position: absolute;
-  top: 60%;    /* flyttar blocket ner (justera % efter behov) */
-  left: 10%;   /* flyttar blocket lite åt vänster */
-  transform: translateY(-50%); /* justera vertikalt så det känns snyggt */
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(93, 93, 93, 0.828);
   padding: 2rem;
   border-radius: 1rem;
   max-width: 600px;
@@ -350,13 +349,13 @@ main {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #000; /* eller vilken färg du vill */
+  color: ##333;
 }
 
-.hero-text p {
+.hero-text h2 {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #333;
+  color: #ffda44;
 }
 
 @media (max-width: 768px) {
@@ -625,6 +624,9 @@ main {
 .projects-wrapper {
     background-color: #3b3b3b;
     padding: 1rem 0;
+    max-width: 2000px;
+    margin: 0 auto;
+    border-radius: 1rem;
   }
 .projects-section {
   max-width: 1200px;
@@ -634,7 +636,7 @@ main {
 }
 
 .projects-section h1 {
-  color: white;
+  color: whitesmoke;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
   text-align: center;
@@ -674,6 +676,7 @@ main {
 .project-card h3 {
   margin: 0 0 0.5rem 0;
   font-family: 'Noto Sans', sans-serif;
+  color: #333;
 }
 
 .project-card p {
