@@ -25,20 +25,20 @@
   </div>
   <nav class="mobile-links" id="mobileLinks">
     <a href="index.html">Portfolio</a>
-    <a href="#about.html">About Me</a>
+    <a href="about.html">About Me</a>
     <a href="#contact">Contact</a>
   </nav>
 </div>
 
 <!-- Desktopmeny -->
-<header class="glass-header">
+<header class="glass-header-flow">
   <div class="nav-content">
     <div class="logo">
       <img src="images/Me_round_profile_pic.png" alt="Logo" />
     </div>
     <nav class="desktop-links">
       <a href="index.html">Portfolio</a>
-      <a href="#about.html">About Me</a>
+      <a href="about.html">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -58,13 +58,15 @@
 
   <div class="hero-text">
       <h1>Hi, I'm Thiago</h1>
-      <h2>I create immersive virtual experiences for any project</h2>
+      <h2>I create immersive virtual experiences for any project.</h2>
   </div>
 </section>
  
+<div style="text-align: center;">
+  <h1>My Projects</h1>
+</div>
   <section class="projects-wrapper">
     <section id="projects" class="projects-section">
-      <h1>My Projects</h1>
       <div class="projects-grid">
   
         <div class="project-card">
@@ -105,7 +107,48 @@
   
       </div>
     </section>
+  
   </section>
+  <div style="text-align: center;">
+    <h1>Contact me</h1>
+  </div>
+  <section class="contact-wrapper">
+    <form class="contact-form" action="#" method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+  
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+  
+      <button type="submit">Send</button>
+      
+      <p id="confirmationMessage" class="confirmation-message">
+      Thank you for your message! I'll get back to you as soon as possible.
+    </p>
+    </form>
+
+    
+  
+    <div class="contact-info">
+      <h3>Where I can be found</h3>
+      <a href="https://linkedin.com/in/dittnamn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://linkedin.com/in/dittnamn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-artstation"></i> ArtStation
+      </a>
+      <a href="https://linkedin.com/in/dittnamn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:din.email@exempel.com">
+        <i class="fas fa-envelope"></i> E-post
+      </a>
+      <!-- Lägg till fler kontaktvägar här -->
+    </div>
+</section>
   
 </main>
 <footer>
