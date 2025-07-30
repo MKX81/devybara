@@ -455,6 +455,14 @@ main {
   transform: scale(1.03);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .cv-link:hover {
+    background-color: initial;
+    color: initial;
+    transform: none;
+  }
+}
+
 /* Skills */
 .skills-container {
   display: flex;
@@ -469,14 +477,13 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #f2efc2;
+  background-color: whitesmoke;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   font-size: 0.9rem;
   color: #333;
-  transition: background-color 0.3s ease;
-  cursor: default;
+  cursor: none;
 }
 
 .skill i {
@@ -484,9 +491,6 @@ main {
   color: #666;
 }
 
-.skill:hover {
-  background-color: #dbeafe; /* ljus blå hover */
-}
 
 /* CONTACT*/
 .contact-wrapper {
@@ -542,15 +546,20 @@ main {
   font-size: 1rem;
   width: fit-content;
   transition: all 0.3s ease;
-  cursor: pointer; /* För att få "pekaren" på hover */
+  cursor: pointer;
 }
 
 .contact-form button:hover {
   transform: scale(1.03);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .contact-form button:hover {
+    transform: none;
+  }
+}
+
 .confirmation-message {
-  display: none;
   margin-top: 1rem;
   padding: 1rem;
   background-color: #A64208;
@@ -563,32 +572,30 @@ main {
 
 .confirmation-message.show {
   display: block;
-  animation: fadeInUp 0.3s ease-out forwards;
+  opacity: 1;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 .confirmation-message.hide {
-  animation: fadeOutDown 0.3s ease-in forwards;
+  opacity: 0;
+  animation: fadeOut 0.5s ease-in forwards;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-@keyframes fadeOutDown {
+@keyframes fadeOut {
   from {
     opacity: 1;
-    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: translateY(10px);
   }
 }
 
@@ -829,13 +836,13 @@ footer {
   background-size: cover;
   background-position: center;
   z-index: 0;
+  filter: brightness(0.9);
 }
 
 .hero-projects-overlay {
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px); /* behövs för Safari */
+  background-color: rgba(255, 255, 255, 0.2);
   z-index: 1;
 }
 
@@ -1045,13 +1052,9 @@ footer {
   filter: grayscale(0%);
   transform: scale(1.02);
 }
-
-/* Mobilanpassning – kan anpassas ytterligare om du vill */
+/
 @media (max-width: 768px) {
   .image-grid {
     grid-template-columns: 1fr;
   }
 }
-
-
-
