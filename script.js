@@ -32,99 +32,84 @@ links.forEach(link => {
     mobileLinks.classList.remove("active");
   });
 });
-
-
-// CITATKARUSELL
-
 const quoteTrack = document.getElementById("quoteTrack");
-const quotes = Array.from(document.querySelectorAll(".quote"));
-const visibleCount = 3;
-const totalQuotes = quotes.length;
 
-// 1. Klona de första 'visibleCount' citaten och lägg i slutet för loop-effekt
-for (let i = 0; i < visibleCount; i++) {
-  const clone = quotes[i].cloneNode(true);
-  quoteTrack.appendChild(clone);
-}
+if (quoteTrack) {
+  const quotes = Array.from(document.querySelectorAll(".quote"));
+  const visibleCount = Math.min(3, quotes.length);
+  const totalQuotes = quotes.length;
 
-let currentIndex = 0;
-let isTransitioning = false;
+  // Klona de första 'visibleCount' citaten för loop-effekt
+  for (let i = 0; i < visibleCount; i++) {
+    const clone = quotes[i].cloneNode(true);
+    quoteTrack.appendChild(clone);
+  }
 
-// Bredd per "slide" i procent (eftersom flex-basis är 100% / 3)
-const slidePercent = 100 / visibleCount;
+  let currentIndex = 0;
+  let isTransitioning = false;
+  const slidePercent = 100 / visibleCount;
 
-function updateFocus() {
-  const allQuotes = quoteTrack.querySelectorAll(".quote");
-  allQuotes.forEach((q, i) => {
-    // fokus på det andra synliga citatet = currentIndex + 1
-    if (i === currentIndex + 1) {
-      q.classList.add("focus");
+  function updateFocus() {
+    const allQuotes = quoteTrack.querySelectorAll(".quote");
+    allQuotes.forEach((q, i) => {
+      if (i === currentIndex + 1) {
+        q.classList.add("focus");
+      } else {
+        q.classList.remove("focus");
+      }
+    });
+  }
+
+  function slideNext() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    currentIndex++;
+    quoteTrack.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+    quoteTrack.style.transform = `translateX(-${slidePercent * currentIndex}%)`;
+
+    updateFocus();
+
+    if (currentIndex === totalQuotes) {
+      setTimeout(() => {
+        quoteTrack.style.transition = 'none';
+        quoteTrack.style.transform = 'translateX(0)';
+        currentIndex = 0;
+        updateFocus();
+        isTransitioning = false;
+      }, 500);
     } else {
-      q.classList.remove("focus");
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 500);
     }
-  });
-}
-
-function slideNext() {
-  if (isTransitioning) return;
-  isTransitioning = true;
-
-  currentIndex++;
-  quoteTrack.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
-  quoteTrack.style.transform = `translateX(-${slidePercent * currentIndex}%)`;
+  }
 
   updateFocus();
-
-  // När vi nått kopian (loop back)
-  if (currentIndex === totalQuotes) {
-    setTimeout(() => {
-      // hoppa tillbaka direkt utan transition (snap)
-      quoteTrack.style.transition = 'none';
-      quoteTrack.style.transform = 'translateX(0)';
-      currentIndex = 0;
-      updateFocus();
-      isTransitioning = false;
-    }, 500); // vänta tills animationen är klar
-  } else {
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 500);
-  }
+  setInterval(slideNext, 5000);
 }
 
-// Starta karusellen
-updateFocus();
-setInterval(slideNext, 5000);
-
-
-
+// FORMULÄR
 const form = document.querySelector(".contact-form");
 const confirmation = document.getElementById("confirmationMessage");
 
-if (form && confirmation) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+form?.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    // Visa meddelandet med fadeIn
-    confirmation.classList.remove("hide");
-    confirmation.classList.add("show");
-    confirmation.style.display = "block";
+  confirmation.classList.remove("hide");
+  confirmation.classList.add("show");
 
-    form.reset();
+  form.reset();
 
-    setTimeout(() => {
-      // Starta fadeOut
-      confirmation.classList.remove("show");
-      confirmation.classList.add("hide");
+  setTimeout(() => {
+    confirmation.classList.remove("show");
+    confirmation.classList.add("hide");
 
-      // När fadeOut är klar, göm helt
-      confirmation.addEventListener("animationend", function handler() {
-        confirmation.style.display = "none";
-        confirmation.classList.remove("hide");
-        confirmation.removeEventListener("animationend", handler);
-      });
-    }, 5000);
-  });
-}
+    confirmation.addEventListener("animationend", function handler() {
+      confirmation.classList.remove("hide");
+      confirmation.removeEventListener("animationend", handler);
+    });
+  }, 5000);
+});
 
 
