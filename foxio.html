@@ -16,137 +16,286 @@
 <body>
 
  <!-- Mobilmeny -->
-<div class="mobile-nav">
+ <div class="mobile-nav">
   <div class="mobile-logo">
-    <img src="images/Me_round_profile_pic.png" alt="Logo" />
+    <a href="index.html">
+      <img src="images/Me_round_profile_pic.png" alt="Logo" />
+    </a>
   </div>
   <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
     <i class="fas fa-bars"></i>
   </div>
   <nav class="mobile-links" id="mobileLinks">
-    <a href="index.html">Portfolio</a>
+    <a href="#my-project-scroll">My Projects</a>
     <a href="about.html">About Me</a>
-    <a href="contact.html">Contact</a>
+    <a href="#contact-section">Contact</a>
   </nav>
 </div>
+
 
 <!-- Desktopmeny -->
 <header class="glass-header-flow">
   <div class="nav-content">
     <div class="logo">
-      <img src="images/Me_round_profile_pic.png" alt="Logo" />
+      <a href="index.html">
+        <img src="images/Me_round_profile_pic.png" alt="Logo" />
+      </a>
     </div>
+    
     <nav class="desktop-links">
-      <a href="index.html">Portfolio</a>
+      <a href="#my-project-scroll">My projects</a>
       <a href="about.html">About Me</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact-section">Contact</a>
     </nav>
   </div>
 </header>
 
  <main>
-   <section class="hero-projects">
-     <div
-  class="hero-projects-bg"
-  style="background-image: url('images/image (6).png')"
-></div>
-     <div class="hero-projects-overlay"></div>
-     <div class="hero-projects-content">
-       <h1>FOXIO</h1>
+  <section class="projectpage-start">
 
-        <!-- Video under rubriken -->
-    <div class="video-container">
+    <div class="projectpage-title-start">
+      <h1>FOXIO</h1>
+    </div>
+  
+    <div class="projectpage-video-start">
       <iframe
-        src="https://www.youtube.com/embed/ji5uzJGvd5Q"
-        title="YouTube-video"
+        id="mainVideo"
+        src="https://www.youtube.com/embed/ji5uzJGvd5Q?enablejsapi=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
         allowfullscreen
       ></iframe>
     </div>
-       <div class="project-info-blocks">
-         <div class="info-block">
-           <h2><i class="fas fa-gamepad"></i> Type of project</h2>
-           <p>Game design in Unity</p>
-         </div>
-         <div class="info-block">
-           <h2><i class="fas fa-users"></i> Audience</h2>
-           <p>Teenagers with attention deficities</p>
-         </div>
-         <div class="info-block">
-           <h2><i class="fas fa-building"></i> Customer</h2>
-           <p>Modda Sörmland</p>
-         </div>
-         <div class="info-block">
-           <h2><i class="fas fa-calendar-alt"></i> Year</h2>
-           <p>2024–2025</p>
-         </div>
-       </div>
-     </div>
-</section>
-
-<div style="text-align: center;">
-  <h2>Project videos</h2>
-</div>
-   <section class="video-section">
-     <div class="video-grid">
-      <div class="video-grid">
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/..." allowfullscreen></iframe>
-          <div class="video-description">Den här videon visar hur projektet fungerar.</div>
-        </div>
-        <div class="video-grid">
-          <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/..." allowfullscreen></iframe>
-            <div class="video-description">Den här videon visar hur projektet fungerar.</div>
-          </div>
-     </div>
-   </section>
-   <div style="text-align: center;">
-    <h2>Gallery</h2>
-  </div>
-   <section class="images-section">
     
-    <div class="image-grid">
-      <img src="images/NPC (1).png" alt="NPC 1">
-      <img src="images/photo2.jpg" alt="Gallery Image 2">
-      <img src="images/photo3.jpg" alt="Gallery Image 3">
-      <img src="images/photo4.jpg" alt="Gallery Image 4">
-      <img src="images/photo5.jpg" alt="Gallery Image 5">
-      <img src="images/photo6.jpg" alt="Gallery Image 6">
-      <img src="images/photo7.jpg" alt="Gallery Image 7">
-      <img src="images/photo8.jpg" alt="Gallery Image 8">
-      <img src="images/photo9.jpg" alt="Gallery Image 9">
-      <img src="images/photo10.jpg" alt="Gallery Image 10">
+    </div>
+
+  </section>
+  <section class="project-overview-area">
+    <h2 class="project-overview-title">Project Overview</h2>
+    <div class="project-overview-info-blocks">
+      <div class="left-blocks">
+        <div class="info-block">
+          <h2><i class="far fa-calendar-alt"></i> Project time</h2>
+          <p>March - April 2025 (8 weeks)</p>
+        </div>
+  
+        <div class="info-block">
+          <h2><i class="fas fa-user-cog"></i> My roles</h2>
+          <p>3D Artist, Project Management, Unity Development</p>
+        </div>
+  
+        <div class="info-block">
+          <h2><i class="fas fa-bullseye"></i> Goals</h2>
+          <p>Development of an idea to create a startup.</p>
+        </div>
+      </div>
+  
+      <div class="right-block">
+        <div class="info-block">
+          <h2><i class="fas fa-tools"></i> Technical info</h2>
+          <div class="skills-container">
+            <div class="skill">VR, single play hand controlled with gazing mechanism</div>
+            <div class="skill">Unity</div>
+            <div class="skill">Procreate</div>
+            <div class="skill">Maya</div>
+            <div class="skill">GitHub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project-overview-bottom">
+      <div class="overview-subtitle">
+        <h3>About this project</h3>
+        <p>Bla bla bla</p>
+      </div>
+      <div class="overview-video-container">
+        <video id="myVideo" controls playsinline>
+          <source src="images/Video01.mp4" type="video/mp4" />
+          Din webbläsare stödjer inte videouppspelning.
+        </video>
+      </div>
     </div>
   </section>
+
+  <section class="my-contributions-area">
+    <h2>My contributions</h2>
+    
+    <div class="contributions-container">
+      <div class="left-image">
+        <img src="images/03 ME - Devybara.png" alt="Beskrivande alt-text" />
+      </div>
+      
+      <div class="right-contributions">
+        <div class="contribution-block">3D modeling in Maya</div>
+        <div class="contribution-block">Hand painted textures in Procreate</div>
+        <div class="contribution-block">Materials in Unity</div>
+        <div class="contribution-block">Environment design</div>
+        <div class="contribution-block">Shaders</div>
+        <div class="contribution-block">Branding</div>
+        <div class="contribution-block">Storyboard</div>
+        <div class="contribution-block">Night to day transition</div>
+        <div class="contribution-block">Project management</div>
+        <!-- Lägg till fler block här -->
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="images-section fade-in-section">
+    <h2>3D Models and Textures</h2>
+    <div class="image-grid">
+      <img src="images/Owl.gif" alt="Owl"/>
+      <img src="images/GlassJar.gif" alt="Glass Jar"/>
+      <img src="images/LeftPaw.gif" alt="Left paw"/>
+      <img src="images/RightPaw.gif" alt="Right Paw"/>
+      <img src="images/Tree.gif" alt="Tree"/>
+      <img src="images/TrunkTree.gif" alt="Trunk Tree"/>
+      <img src="images/Ground.gif" alt="Ground"/>
+      <img src="images/Moon.gif" alt="Moon"/>
+      <img src="images/Tree-and-trunk-3D-model.png" alt="Tree and trunk 3D" class="large"/>
+      <img src="images/Small-3D-models.png" alt="Small 3D models" class="large"/>
+      <!-- fler bilder och videos -->
+    </div>
+  </section>
+  
+  
+  
+  
+  <section class="multi-carousel-section">
+    <div class="carousel-header">
+      <h2>Flat textures</h2>
+    </div>
+  
+    <div class="multi-carousel-container">
+      <button class="multi-prev" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+  
+      <div class="multi-carousel-viewport">
+        <div class="multi-carousel-track">
+          <div class="multi-carousel-item"><img src="images/01_Night_skybox.png" alt="Bild 1"></div>
+          <div class="multi-carousel-item"><img src="images/02_Day_Skybox_texture.png" alt="Bild 2"></div>
+          <div class="multi-carousel-item"><img src="images/03_Menu_skybox_Texture.png" alt="Bild 3"></div>
+          <div class="multi-carousel-item"><img src="images/05_Backgroundtree_Texturepng.png" alt="Bild 5"></div>
+          <div class="multi-carousel-item"><img src="images/06_Leaves_texture.png" alt="Bild 5"></div>
+          <div class="multi-carousel-item"><img src="images/07_FoxCloud_texture.png" alt="Bild 5"></div>
+          <div class="multi-carousel-item"><img src="images/08_Papercuts_textures.png" alt="Bild 5"></div>
+        </div>
+      </div>
+  
+      <button class="multi-next" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <section class="ntd-area">
+    <h2>Night to Day Transition</h2>
+    <div class="ntd-video-iframe-container">
+      <video id="ntdVideo" controls playsinline>
+        <source src="images/night-to-day-transition.mp4" type="video/mp4" />
+        Din webbläsare stödjer inte HTML5-video.
+      </video>
+    </div>
+  </section>
+
+  <section class="branding-area">
+    <h2>Branding</h2>
+    <div class="branding-images-grid">
+      <img src="images/image (6).png" alt="Bild 1" class="img1" />
+      <img src="images/image (7).png" alt="Bild 2" class="img2" />
+      <img src="images/image.png" alt="Bild 3" class="img3" />
+      <img src="images/8B00BB8F-C7B4-404C-BB16-B8461DB8582A.JPG" alt="Bild 4" class="img4" />
+      <img src="images/IMG_3398.jpg" alt="Bild 5" class="img5" />
+    </div>
+  </section>
+  
+  
+  
+  <section class="user-tests-area">
+    <h2>User Tests</h2>
+    <div class="user-tests-container">
+      <div class="left-user-tests">
+        <strong>We had the privilege of visiting Stenhammarskolan in Flen, a school that’s truly pioneering the use of XR in education in Sweden.</strong>
+        <p>
+          During our time there, we conducted a user test of our VR application, FOXIO 🦊, and received insightful feedback directly from the students. Their thoughts gave us valuable learnings and highlighted exciting opportunities for improvement.
+        </p>
+      </div>
+      <div class="user-tests-right-images">
+        <img src="images/User test 2.jpg" alt="Användartest 1" />
+        <img src="images/Usert test 3.jpg" alt="Användartest 2" />
+      </div>
+    </div>
+  </section>
+  
+  <section class="misc-project-gallery">
+    <h2>Misc Project Gallery</h2>
+    
+    <div class="misc-carousel-container">
+      <button class="misc-prev" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+  
+      <div class="misc-carousel-viewport">
+        <div class="misc-gallery-grid">
+          <img src="images/9041443_headset_vr_icon.png" alt="Bild 1" />
+          <img src="images/DSC02730.jpg" alt="Bild 2" />
+          <img src="https://picsum.photos/id/1013/150/300" alt="Bild 3" />
+          <img src="https://picsum.photos/id/1014/150/150" alt="Bild 4" />
+          <img src="https://picsum.photos/id/1015/300/300" alt="Bild 5" />
+          <img src="https://picsum.photos/id/1016/300/150" alt="Bild 6" />
+          <img src="https://picsum.photos/id/1018/150/150" alt="Bild 7" />
+          <img src="https://picsum.photos/id/1011/300/300" alt="Bild 1" />
+          <img src="https://picsum.photos/id/1012/300/150" alt="Bild 2" />
+          <img src="https://picsum.photos/id/1013/150/300" alt="Bild 3" />
+          <img src="https://picsum.photos/id/1014/150/150" alt="Bild 4" />
+          <img src="https://picsum.photos/id/1015/300/300" alt="Bild 5" />
+          <img src="https://picsum.photos/id/1016/300/150" alt="Bild 6" />
+          <img src="https://picsum.photos/id/1018/150/150" alt="Bild 7" />
+        </div>
+      </div>
+  
+      <button class="misc-next" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+  
+  <section class="back-to-projects">
+    <a href="index.html" tabindex="0" aria-label="Back to my projects">
+      <h3>
+        <i class="fas fa-undo" aria-hidden="true"></i>
+        Back to my projects
+      </h3>
+    </a>
+  </section>
+  
+  
+  
+  
+  
+  
   
  </main>
 
  <footer>
   <div class="social-footer">
-    <a
-      href="https://github.com/yourusername"
-      target="_blank"
-      aria-label="GitHub"
-    >
-      <i class="fab fa-github"></i>
-    </a>
-    <a
-      href="https://linkedin.com/in/yourusername"
-      target="_blank"
-      aria-label="LinkedIn"
-    >
+
+    <a href="https://www.linkedin.com/in/thiagosd/" target="_blank" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
     </a>
-    <a href="mailto:your.email@example.com" aria-label="Email">
+    <a href="mailto:thiagosenadantas@gmail.com" aria-label="Email">
       <i class="fas fa-envelope"></i>
     </a>
-    <a href="https://www.artstation.com/yourusername" target="_blank" aria-label="ArtStation">
+    <a href="https://github.com/devybara" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.artstation.com/artybara" target="_blank" aria-label="ArtStation">
      <i class="fa-brands fa-artstation"></i>
-   </a>
+   </a>   
   </div>
   <div class="copyright-text">&copy; 2025 Thiago Sena</div>
 </footer>
-
 <script src="script.js"></script>
 </body>
 </html>
