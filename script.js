@@ -158,7 +158,6 @@ if (form && confirmation) {
 
   function updateCarousel() {
     const visibleCount = getVisibleCount();
-    const totalItems = itemCount + visibleCount; // ursprung + kloner
     const maxIndex = itemCount;
 
     if (currentIndex > maxIndex) currentIndex = maxIndex;
@@ -427,4 +426,25 @@ document.addEventListener('DOMContentLoaded', () => {
   faders.forEach(fader => {
     observer.observe(fader);
   });
+
+  // === BILDVÄXLING (alternativ 1: flera img i .left-image) ===
+  const images = document.querySelectorAll('.left-image img');
+  let current = 0;
+
+  if (images.length > 0) {
+    // Visa bara första bilden initialt
+    images.forEach((img, i) => {
+      if (i === 0) {
+        img.classList.add('active');
+      } else {
+        img.classList.remove('active');
+      }
+    });
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 4000);
+  }
 });
