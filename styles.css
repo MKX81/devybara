@@ -1052,48 +1052,68 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .project-overview-area {
-    padding: 0;
-  }
-
   .project-overview-info-blocks {
     flex-direction: column;
     width: 100%;
-    padding: 0;
+    text-align: center;
   }
 
   .info-block {
-    display: flex;           /* Lägg till */
-    flex-direction: column;  /* Staplar innehållet vertikalt */
-    align-items: center;     /* Centrerar innehållet horisontellt */
-    text-align: center;      /* Centrerar texten */
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
-  .left-blocks, 
+  .info-block h2,
+  .info-block p {
+    text-align: center;
+  }
+
+  .left-blocks,
   .right-block {
-    flex: unset;
     width: 100%;
+    margin-bottom: 1rem;
   }
-}
 
-@media (max-width: 768px) {
   .project-overview-bottom {
     flex-direction: column;
-    width: 100%;
     max-width: 100%;
-    border-radius: 0;
+    gap: 1rem;
+    margin: 0 auto;
   }
 
-  .overview-subtitle,
+  .overview-subtitle {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .overview-subtitle p {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
   .overview-video-container {
     width: 100%;
-    margin: 0 0 1rem 0;
-    border-radius: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .overview-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 1rem;
   }
 }
+
+
+
 
 /*MY CONTRIBUTIONS */
 .my-contributions-area {
