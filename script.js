@@ -44,6 +44,7 @@ if (quoteTrack) {
   const visibleCount = Math.min(3, quotes.length);
   const totalQuotes = quotes.length;
 
+  // Klona för oändlig scroll
   for (let i = 0; i < visibleCount; i++) {
     const clone = quotes[i].cloneNode(true);
     quoteTrack.appendChild(clone);
@@ -81,11 +82,11 @@ if (quoteTrack) {
         currentIndex = 0;
         updateFocus();
         isTransitioning = false;
-      }, 500);
+      }, 700);
     } else {
       setTimeout(() => {
         isTransitioning = false;
-      }, 500);
+      }, 700);
     }
   }
 
@@ -118,7 +119,7 @@ if (form && confirmation) {
   });
 }
 
-// === Bildspelskarusell ===
+// === MULTI-CAROUSEL ===
 (function(){
   const track = document.querySelector('.multi-carousel-track');
   const prevBtn = document.querySelector('.multi-prev');
@@ -126,8 +127,8 @@ if (form && confirmation) {
 
   if (!track || !prevBtn || !nextBtn) return;
 
-  const items = Array.from(track.children);
-  const itemCount = items.length;
+  let items = Array.from(track.children);
+  let itemCount = items.length;
   let currentIndex = 0;
 
   function getVisibleCount() {
@@ -136,36 +137,95 @@ if (form && confirmation) {
     return 3;
   }
 
+  // Klona första N items för oändlig loop
+  function cloneItems() {
+    const visibleCount = getVisibleCount();
+    // Ta bort eventuella tidigare kloner först (om resize)
+    const clones = track.querySelectorAll('.clone');
+    clones.forEach(clone => clone.remove());
+
+    for (let i = 0; i < visibleCount; i++) {
+      const clone = items[i].cloneNode(true);
+      clone.classList.add('clone');
+      track.appendChild(clone);
+    }
+  }
+
+  function updateItems() {
+    items = Array.from(track.children).filter(el => !el.classList.contains('clone'));
+    itemCount = items.length;
+  }
+
   function updateCarousel() {
     const visibleCount = getVisibleCount();
-    const maxIndex = itemCount - visibleCount;
-    if (currentIndex > maxIndex) currentIndex = maxIndex < 0 ? 0 : maxIndex;
+    const totalItems = itemCount + visibleCount; // ursprung + kloner
+    const maxIndex = itemCount;
+
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
 
     const itemWidth = items[0].getBoundingClientRect().width + 15;
     const moveX = -currentIndex * itemWidth;
 
+    track.style.transition = 'transform 0.5s ease';
     track.style.transform = `translateX(${moveX}px)`;
   }
 
   function next() {
     const visibleCount = getVisibleCount();
-    const maxIndex = itemCount - visibleCount;
-    currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
-    updateCarousel();
+    const maxIndex = itemCount;
+
+    currentIndex++;
+
+    track.style.transition = 'transform 0.5s ease';
+
+    const itemWidth = items[0].getBoundingClientRect().width + 15;
+    const moveX = -currentIndex * itemWidth;
+    track.style.transform = `translateX(${moveX}px)`;
+
+    if (currentIndex === maxIndex) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        track.style.transform = 'translateX(0)';
+      }, 500);
+    }
   }
 
   function prev() {
     const visibleCount = getVisibleCount();
-    const maxIndex = itemCount - visibleCount;
-    currentIndex = currentIndex <= 0 ? maxIndex : currentIndex -1;
-    updateCarousel();
+    const maxIndex = itemCount;
+
+    if (currentIndex === 0) {
+      currentIndex = maxIndex;
+      track.style.transition = 'none';
+      const itemWidth = items[0].getBoundingClientRect().width + 15;
+      const moveX = -currentIndex * itemWidth;
+      track.style.transform = `translateX(${moveX}px)`;
+
+      // Force reflow before animating back
+      void track.offsetWidth;
+
+      currentIndex--;
+      track.style.transition = 'transform 0.5s ease';
+      const moveX2 = -currentIndex * itemWidth;
+      track.style.transform = `translateX(${moveX2}px)`;
+    } else {
+      currentIndex--;
+      updateCarousel();
+    }
   }
 
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  window.addEventListener('resize', updateCarousel);
+  window.addEventListener('resize', () => {
+    cloneItems();
+    updateItems();
+    updateCarousel();
+  });
 
+  cloneItems();
+  updateItems();
   updateCarousel();
 
   // Dra med musen
@@ -204,30 +264,6 @@ if (form && confirmation) {
   setInterval(next, 5000);
 })();
 
-
-
-// === FADE-IN SCRIPT ===
-document.addEventListener('DOMContentLoaded', () => {
-  const faders = document.querySelectorAll('.fade-in-section');
-
-  const observerOptions = {
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  faders.forEach(fader => {
-    observer.observe(fader);
-  });
-});
-
 // === KARUSELL FÖR MISC-GALLERY ===
 (function(){
   const track = document.querySelector('.misc-gallery-grid');
@@ -236,10 +272,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!track || !prevBtn || !nextBtn) return;
 
-  const items = Array.from(track.children);
+  let items = Array.from(track.children);
   if (items.length === 0) return;
 
-  const itemCount = items.length;
+  let itemCount = items.length;
   let currentIndex = 0;
 
   function getVisibleCount() {
@@ -248,36 +284,92 @@ document.addEventListener('DOMContentLoaded', () => {
     return 3;
   }
 
+  // Klona första N items för oändlig loop
+  function cloneItems() {
+    const visibleCount = getVisibleCount();
+    const clones = track.querySelectorAll('.clone');
+    clones.forEach(clone => clone.remove());
+
+    for (let i = 0; i < visibleCount; i++) {
+      const clone = items[i].cloneNode(true);
+      clone.classList.add('clone');
+      track.appendChild(clone);
+    }
+  }
+
+  function updateItems() {
+    items = Array.from(track.children).filter(el => !el.classList.contains('clone'));
+    itemCount = items.length;
+  }
+
   function updateCarousel() {
     const visibleCount = getVisibleCount();
-    const maxIndex = itemCount - visibleCount;
-    if (currentIndex > maxIndex) currentIndex = maxIndex < 0 ? 0 : maxIndex;
+    const maxIndex = itemCount;
+
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
 
     const itemWidth = items[0].getBoundingClientRect().width + 16;
     const moveX = -currentIndex * itemWidth;
 
+    track.style.transition = 'transform 0.5s ease';
     track.style.transform = `translateX(${moveX}px)`;
   }
 
   function next() {
     const visibleCount = getVisibleCount();
-    const maxIndex = itemCount - visibleCount;
-    currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
-    updateCarousel();
+    const maxIndex = itemCount;
+
+    currentIndex++;
+
+    track.style.transition = 'transform 0.5s ease';
+
+    const itemWidth = items[0].getBoundingClientRect().width + 16;
+    const moveX = -currentIndex * itemWidth;
+    track.style.transform = `translateX(${moveX}px)`;
+
+    if (currentIndex === maxIndex) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        track.style.transform = 'translateX(0)';
+      }, 500);
+    }
   }
 
   function prev() {
     const visibleCount = getVisibleCount();
-    const maxIndex = itemCount - visibleCount;
-    currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
-    updateCarousel();
+    const maxIndex = itemCount;
+
+    if (currentIndex === 0) {
+      currentIndex = maxIndex;
+      track.style.transition = 'none';
+      const itemWidth = items[0].getBoundingClientRect().width + 16;
+      const moveX = -currentIndex * itemWidth;
+      track.style.transform = `translateX(${moveX}px)`;
+
+      void track.offsetWidth; // Force reflow
+
+      currentIndex--;
+      track.style.transition = 'transform 0.5s ease';
+      const moveX2 = -currentIndex * itemWidth;
+      track.style.transform = `translateX(${moveX2}px)`;
+    } else {
+      currentIndex--;
+      updateCarousel();
+    }
   }
 
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  window.addEventListener('resize', updateCarousel);
+  window.addEventListener('resize', () => {
+    cloneItems();
+    updateItems();
+    updateCarousel();
+  });
 
+  cloneItems();
+  updateItems();
   updateCarousel();
 
   const viewport = document.querySelector('.misc-carousel-viewport');
@@ -314,3 +406,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setInterval(next, 5000);
 })();
+
+// === FADE-IN SCRIPT ===
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade-in-section');
+
+  const observerOptions = {
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  faders.forEach(fader => {
+    observer.observe(fader);
+  });
+});
