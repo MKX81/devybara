@@ -1375,6 +1375,19 @@ footer {
   border: none;
 }
 
+@media (max-width: 768px) {
+  .ntd-area {
+    padding: 0;
+  }
+  
+  .ntd-video-iframe-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
 
 /*BRANDING-SECTION */
 
