@@ -1164,15 +1164,17 @@ footer {
 
   .left-image,
   .right-contributions {
-    min-width: 100%;
+    width: 100%;
   }
 
   .right-contributions {
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .contribution-block {
-    flex: 0 1 calc(50% - 0.75rem); /* två per rad */
+    width: 100%;
   }
 }
 
@@ -1667,25 +1669,23 @@ footer {
   right: 10px;
 }
 
-/* Responsivt: 2 bilder på mindre skärm */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .misc-gallery-grid {
+    flex-wrap: nowrap; /* eller ta bort om du vill scrolla horisontellt */
+    overflow-x: auto;  /* gör att man kan scrolla horisontellt */
+  }
+  
   .misc-gallery-grid img {
-    width: 150px;
+    width: 80vw; /* visa en bild i taget ungefär */
+    flex-shrink: 0; /* förhindra att bilden krymper */
   }
 }
 
-/* Responsivt: 1 bild på mobil */
-@media (max-width: 480px) {
-  .misc-gallery-grid img {
-    width: 100%;
-  }
-
-  .misc-prev,
-  .misc-next {
+.misc-prev,
+.misc-next {
     font-size: 1.5rem;
     padding: 0.2rem 0.5rem;
   }
-}
 
 
 /*BACK TO PROJECTS*/
