@@ -21,11 +21,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    font-family: "Noto Serif", serif;
+    font-family: "Noto Sans", serif;
     color: #333;
   }
 
-/* MAIN */
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    will-change: opacity, transform;
+  }
+  
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  
 
 main {
   max-width: 100%;    
@@ -467,29 +479,23 @@ main {
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  justify-content: flex-start;
+  gap: 0.8rem 1rem;
   max-width: 2000px;
   margin: 0 auto;
   font-family: 'Noto Sans', sans-serif;
 }
 
 .skill {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: whitesmoke;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  background-color: #f2f1df;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #333;
-  cursor: none;
+  cursor: default;
 }
 
-.skill i {
-  font-size: 1.1rem;
-  color: #666;
-}
 
 
 /* CONTACT*/
@@ -631,7 +637,7 @@ main {
 
 
 
-/* === PROJECTS === */
+/* === MY PROJECTS === */
 
 .projects-wrapper {
     background-color: #f2b885;
@@ -819,242 +825,908 @@ footer {
   }
 }
 
-/* === PROJEKTSIDOR === */
-
-.hero-projects {
-  position: relative;
-  max-width: 2000px;
-  margin: 0 auto;
-  z-index: 1;
-  overflow: hidden;
-  border-radius: 0 0 1rem 1rem;
-}
-
-.hero-projects-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  filter: brightness(0.9);
-}
-
-.hero-projects-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: 1;
-}
-
-.hero-projects-content {
-  margin-top: 10rem;
-  position: relative;
-  z-index: 1;
-  width: 100%;
+/* === PROJEKTSIDOR (GEMENSAM DESIGN) === */
+.projectpage-start {
   padding: 2rem;
-  border-radius: 1rem;
+  width: 100%;
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #A64208;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-projects-content h1 {
+.projectpage-title-start h1 {
   margin-bottom: 2rem;
-  width: 90%;
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: rgba(3, 1, 1, 0.82); /* valfri bakgrund */
+  width: auto;
+  max-width: 90%;
+  background-color: rgba(3, 1, 1, 0.82);
   border-radius: 2rem;
   color: whitesmoke;
   font-family: "Winky Sans", sans-serif;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   letter-spacing: 0.2rem;
+  line-height: 1.2;
 }
 
-/* === VIDEO-INBÄDDNING === */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9-ratio */
-  height: 0;
-  width:90%;
-  margin-left: auto;
-  margin-right: auto;
+.projectpage-video-start {
+  width: 100%;
+  max-width: 90%;
+  aspect-ratio: 16 / 9; /* eller 2.35 / 1, eller vad du vill */
+  margin: 0 auto 3rem auto;
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 3rem;
+  position: relative;
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.projectpage-video-start iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-/* === INFOBLOCK === */
-.project-info-blocks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+/* ÖVERSIKTEN */
+
+.project-overview-area {
+  position: relative;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #bf6341;
+  z-index: 1;
+  overflow: hidden;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.project-overview-title {
+  font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2rem;
+  text-align: center; /* eller 'left' om du vill ha vänsterställd */
+}
+
+.project-overview-info-blocks {
+  display: flex;
+  gap: 1rem;
   width: 90%;
   margin: 0 auto;
-  gap: 1.5rem;
   text-align: left;
+  font-family: 'Noto Sans', sans-serif;
+  padding:0.2rem;
+  align-items: flex-start;
+}
+.project-overview-info-blocks h2{
+  margin: 0;
 }
 
+/* GOALS ETC. */
+.left-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1; 
+}
+
+/* TECHNICAL INFO */
+.right-block {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+
+/* INFO-BLOCKS */
 .info-block {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  padding: 1rem 1.5rem;
+  padding: 0.5rem;
   border-radius: 0.8rem;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .project-overview-info-blocks {
+    flex-direction: column;
+  }
+
+  .left-blocks, .right-block {
+    flex: unset;
+  }
+}
+
 .info-block:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Mörkare, mindre transparent */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Valfri förstärkt skugga */
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+  .info-block {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  .info-block:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
 }
 
 .info-block h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: whitesmoke;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-block h2 i {
+  font-size: 1.2rem;
+  color: whitesmoke;
 }
 
 .info-block p {
-  margin: 0;
   font-size: 1rem;
-  font-weight: 400;
+  line-height: 1.5;
   color: white;
+  margin: 0;
 }
 
-/* === MOBILANPASSNING === */
-@media (max-width: 768px) {
-  .hero-projects-content {
-    padding: 1.5rem;
-  }
-
-  .hero-projects-content h1 {
-    font-size: 2rem;
-  }
-
-  .project-info-blocks {
-    grid-template-columns: 1fr;
-  }
-
-  .info-block {
-    text-align: center;
-  }
-}
-/*VIDEOSEKTION*/
-
-.video-section {
-  max-width: 2000px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+.project-overview-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #8888884f;
   border-radius: 1rem;
-  font-family: "Noto Sans", sans-serif;
-  color: #333;
-  text-align: center;
 }
 
-.video-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.overview-subtitle {
+  flex: 1;
   font-family: "Winky Sans", sans-serif;
+  font-size: 1.8rem;
   color: #333;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-.video-wrapper {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  overflow: hidden; /* gör så att rundade hörn funkar även för innehållet */
+  margin: 1rem;
+  text-align : left;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
-.video-wrapper iframe {
+.overview-subtitle h3 {
+  margin: 0;
+}
+
+.overview-subtitle p {
+  font-family: "Noto Serif", serif;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+.overview-video-container {
+  position: relative;
+  flex: 2;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.overview-video-container video {
   width: 100%;
-  height: 180px;
+  height: 100%;
   border: none;
-  border-bottom: 1px solid #ddd; /* tunn linje mellan video och text (valfritt) */
+  display: block;
+  object-fit: cover;
+}
+/*PLAYBUTTON*/
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem; 
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-.video-description {
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
-  color: #333;
-  text-align: left;
-  background-color: rgb(212, 212, 212);
+.play-button:hover {
+  opacity: 1;
 }
 
-/*mobilanpassning*/
+
 @media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: 1fr;
+  .project-overview-bottom {
+    flex-direction: column;
   }
-  
-  .video-wrapper iframe {
-    height: 220px; /* kan justeras för bättre mobilhöjd */
-  }
-}
 
-/* ANPASSNING AV VIDEOBREDD */
-@media (max-width: 768px) {
-  .hero-projects-content h1,
-  .video-container {
+  .overview-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .overview-video-container {
     width: 100%;
-    max-width: 100%;
+    aspect-ratio: 16 / 9;
   }
 }
-/* === BILDGALLERI-SEKTION === */
-.images-section {
+
+/*MY CONTRIBUTIONS */
+.my-contributions-area {
+  font-family: 'Noto Sans', sans-serif;
   max-width: 2000px;
   margin: 0 auto;
-  padding: 2rem 1rem;
-  border-radius: 1rem 1rem 0 0;
-  font-family: "Noto Sans", sans-serif;
+  color: #333;
+  padding: 1rem;
+}
+
+.my-contributions-area h2 {
+  font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
   text-align: center;
+}
+
+
+.contributions-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.left-image {
+  flex: 1;
+  width: 30%;
+}
+
+.left-image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Bidrags-block till höger */
+.right-contributions {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  min-width: 250px;
+  align-items: center;
+}
+
+.contribution-block {
+  background-color: #f2f1df;
+  color: #333;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .contributions-container {
+    flex-direction: column;
+  }
+  
+  .left-image, .right-contributions {
+    min-width: 100%;
+  }
+  
+  .right-contributions {
+    gap: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .contribution-block {
+      flex: 0 1 calc(50% - 0.75rem); /* två per rad, justera ev. gap */
+    }
+  } 
+
+}
+.images-section {
+  font-family: 'Noto Sans', sans-serif;
+  max-width: 2000px;
+  margin: 0 auto;
+  color: #222;
+  background-color: whitesmoke;
+  padding: 1rem;
 }
 
 .images-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
   font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
   color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  gap: 0.5rem;
 }
 
-.image-grid img {
+
+.image-grid > img,
+.image-grid > video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
   border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: filter 0.3s ease, transform 0.3s ease;
-  filter: grayscale(100%);
 }
 
-.image-grid img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.02);
+/* Storleksklasser */
+.image-grid > img.small,
+.image-grid > video.small {
+  grid-column: span 1;
+  grid-row: span 1;
 }
-/
+
+.image-grid > img.large,
+.image-grid > video.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.image-grid > img.wide,
+.image-grid > video.wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.image-grid > img.tall,
+.image-grid > video.tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.image-grid > img.extra-large,
+.image-grid > video.extra-large {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+
+/* Responsiv anpassning */
 @media (max-width: 768px) {
   .image-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Endast en kolumn */
+    grid-auto-rows: auto;       /* Höjden anpassas efter innehållet */
+  }
+
+  /* Alla storleksklasser får bara span 1 i kolumner (rad lämnas dynamisk) */
+  .image-grid > img.large,
+  .image-grid > video.large,
+  .image-grid > img.wide,
+  .image-grid > video.wide,
+  .image-grid > img.tall,
+  .image-grid > video.tall,
+  .image-grid > img.extra-large,
+  .image-grid > video.extra-large,
+  .image-grid > img.small,
+  .image-grid > video.small {
+    grid-column: span 1;
+  }
+
+  /* Bild-/videostorlek */
+  .image-grid > img,
+  .image-grid > video {
+    width: 100%;
+    height: auto;
+  }
+}@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr; /* Endast en kolumn */
+    grid-auto-rows: auto;       /* Höjden anpassas efter innehållet */
+  }
+
+  .image-grid > img.large,
+  .image-grid > video.large,
+  .image-grid > img.wide,
+  .image-grid > video.wide,
+  .image-grid > img.tall,
+  .image-grid > video.tall,
+  .image-grid > img.extra-large,
+  .image-grid > video.extra-large,
+  .image-grid > img.small,
+  .image-grid > video.small {
+    grid-column: span 1;
+  }
+
+  .image-grid > img,
+  .image-grid > video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;     
+    aspect-ratio: auto;     
+    display: block;      
+  }
+}
+
+
+
+/*BILDGALLERI-SEKTION*/
+
+/* === Bildspelssektion: container och rubriker === */
+.multi-carousel-section {
+  max-width: 2000px;
+  margin: 0 auto;
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  padding: 2rem;
+  background-color: #1e1e1e;
+}
+
+.multi-carousel-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Winky Sans", sans-serif;
+  color: whitesmoke;
+}
+
+.multi-carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.multi-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.multi-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.multi-carousel-item {
+  flex: 0 0 calc(33.333% - 10px); /* 3 bilder i rad minus lite mellanrum */
+  margin-right: 15px;
+}
+
+.multi-carousel-item img {
+  width: 100%;
+  border-radius: 1rem;
+  display: block;
+}
+
+.multi-prev,
+.multi-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  z-index: 10;
+}
+
+.multi-prev {
+  left: 5px;
+}
+
+.multi-next {
+  right: 5px;
+}
+
+.multi-carousel-viewport.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+.multi-carousel-viewport {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.multi-carousel-item img {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Responsivt: 2 bilder på mindre skärm */
+@media (max-width: 768px) {
+  .multi-carousel-item {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* Responsivt: 1 bild på mobil */
+@media (max-width: 480px) {
+  .multi-carousel-item {
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
+
+  .multi-prev,
+  .multi-next {
+    font-size: 1.5rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+/* NIGHT TO DAY TRANSITION */
+
+.ntd-area {
+  font-family: 'Noto Sans', sans-serif;
+  max-width: 2000px;
+  margin: 0 auto;
+  color: #333;
+  padding: 1rem;
+}
+
+.ntd-area h2 {
+  font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.ntd-video-iframe-container {
+  position: relative;
+  width: 90vw;
+  max-width: 2000px;
+  margin: 2rem auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.ntd-video-iframe-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+
+/*BRANDING-SECTION */
+
+.branding-area {
+  font-family: 'Noto Sans', sans-serif;
+  max-width: 2000px;
+  margin: 0 auto;
+  color: #333;
+  padding: 1rem;
+}
+
+.branding-area h2 {
+  font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.branding-images-grid {
+  display: grid;
+  grid-template-columns: 500px 500px 300px 300px;
+  grid-template-rows: repeat(2, minmax(180px, auto));
+  gap: 0.5rem;
+}
+
+.branding-images-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Bildplacering */
+.img1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.img2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.img3 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.img4 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3; /* Tar båda raderna */
+}
+
+.img5 {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3; /* Tar båda raderna */
+}
+
+
+
+/* USER TESTS */
+.user-tests-area {
+  font-family: 'Noto Sans', sans-serif;
+  max-width: 2000px;
+  margin: 0 auto;
+  color: #333;
+  padding: 1rem;
+  background-color:#bf6341;
+}
+
+.user-tests-area h2 {
+  font-family: "Winky Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.user-tests-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* Vanlig ordning: text vänster, bilder höger */
+  flex-direction: row;
+}
+
+/* Textområde till vänster */
+.left-user-tests {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 250px;
+}
+
+.left-user-tests strong {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.left-user-tests p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Bildområde till höger med två bilder i rad */
+.user-tests-right-images {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  min-width: 250px;
+}
+
+.user-tests-right-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsiv anpassning */
+@media (max-width: 768px) {
+  .user-tests-container {
+    flex-direction: column;
+  }
+  
+  .left-user-tests, 
+  .user-tests-right-images {
+    min-width: 100%;
+  }
+  
+  .left-user-tests {
+    gap: 1.5rem;
+  }
+}
+
+/* MISC GALLERY */
+
+.misc-project-gallery {
+  font-family: "Noto Sans", sans-serif;
+  max-width: 2000px;
+  margin: 0 auto;
+  color: #333;
+  padding: 2rem; /* som i din karusell */
+  background-color: #1e1e1e; /* om du vill liknande bakgrund */
+  text-align: center;
+}
+
+.misc-project-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Winky Sans", sans-serif;
+  color: whitesmoke;
+}
+
+.misc-gallery-area {
+  position: relative;
+  overflow: hidden;
+  /* liknande container-stil som i karusellen */
+}
+
+.misc-carousel-container {
+  position: relative;
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 1rem;
+  text-align: center;
+}
+
+.misc-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.misc-carousel-viewport.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.misc-gallery-grid {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.misc-gallery-grid img {
+  width: 200px; /* eller enligt behov */
+  border-radius: 0.5rem;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.misc-prev,
+.misc-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  z-index: 10;
+}
+
+.misc-prev {
+  left: 10px;
+}
+
+.misc-next {
+  right: 10px;
+}
+
+/* Responsivt: 2 bilder på mindre skärm */
+@media (max-width: 768px) {
+  .misc-gallery-grid img {
+    width: 150px;
+  }
+}
+
+/* Responsivt: 1 bild på mobil */
+@media (max-width: 480px) {
+  .misc-gallery-grid img {
+    width: 100%;
+  }
+
+  .misc-prev,
+  .misc-next {
+    font-size: 1.5rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+
+/*BACK TO PROJECTS*/
+.back-to-projects {
+  max-width: 2000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.back-to-projects h3 {
+  font-family: 'Winky Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center; 
+}
+
+.back-to-projects h3 i {
+  color: #007bff;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+.back-to-projects h3:hover {
+  animation: bounce 0.4s ease;
+}
+
+.back-to-projects h3:hover i {
+  transform: none;
+}
+
+@media (max-width: 480px) {
+  .back-to-projects h3 {
+    font-size: 1.2rem;
+    gap: 0.3rem;
+  }
+
+  .back-to-projects h3 i {
+    font-size: 1.4rem;
   }
 }
