@@ -844,13 +844,12 @@ footer {
   display: inline-block;
   min-width:60%;
   max-width: 90%;
-  background-color:#A64208;
+  background-color: transparent;
   border-radius: 1.5rem;
-  color: whitesmoke;
+  color: #222;
   font-family: "Winky Sans", sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   letter-spacing: 0.3rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .projectpage-video-start {
@@ -1135,6 +1134,7 @@ footer {
   font-weight: 600;
   color: #222;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .contributions-container {
@@ -1154,7 +1154,8 @@ footer {
 
 .left-image img {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1173,8 +1174,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  min-width: 250px;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .contribution-block {
@@ -1190,34 +1191,47 @@ footer {
   text-align: center;
   gap: 0.75rem;
   cursor: default;
+  width: fit-content;
+  max-width: 100%;
 }
 
-/* Media query - mobil */
-@media (max-width: 768px) {
+/* ===================== Responsive Anpassning ===================== */
+
+@media (max-width: 1024px) {
+  .left-image {
+    width: 100%;
+    height: 250px;
+  }
+
   .contributions-container {
     flex-direction: column;
   }
-  
-  .left-image {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 1rem;
-  }
-  
+
   .right-contributions {
-    width: 100%;
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
   }
-  
+
   .contribution-block {
-    width: 100%;
+    flex: 1 1 calc(33.333% - 1rem); /* tre per rad */
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .left-image {
+    height: 200px;
+  }
+
+  .contribution-block {
+    flex: 1 1 calc(50% - 0.75rem); /* två per rad på liten mobil */
   }
 }
 
 
 
 
+/* 3D-bilder */
 
 .images-section {
   font-family: 'Noto Sans', sans-serif;
@@ -1634,14 +1648,13 @@ footer {
 }
 
 /* MISC GALLERY */
-
 .misc-project-gallery {
   font-family: "Noto Sans", sans-serif;
   max-width: 2000px;
   margin: 0 auto;
-  color: #333;
-  padding: 2rem; /* som i din karusell */
-  background-color: #1e1e1e; /* om du vill liknande bakgrund */
+  color: #fff;
+  padding: 2rem;
+  background-color: #1e1e1e;
   text-align: center;
 }
 
@@ -1652,88 +1665,83 @@ footer {
   color: whitesmoke;
 }
 
-.misc-gallery-area {
-  position: relative;
-  overflow: hidden;
-  /* liknande container-stil som i karusellen */
-}
-
-.misc-carousel-container {
-  position: relative;
-  max-width: 2000px;
-  margin: 0 auto;
-  overflow: hidden;
-  font-family: 'Noto Sans', sans-serif;
-  padding: 1rem;
-  text-align: center;
-}
-
-.misc-carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  cursor: grab;
-  cursor: -webkit-grab;
-}
-
-.misc-carousel-viewport.dragging {
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-}
-
 .misc-gallery-grid {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  transition: transform 0.5s ease;
+  justify-content: center;
 }
 
 .misc-gallery-grid img {
-  width: 200px; /* eller enligt behov */
+  width: 200px;
   border-radius: 0.5rem;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.misc-prev,
-.misc-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.3rem 0.7rem;
   cursor: pointer;
-  border-radius: 4px;
   user-select: none;
-  z-index: 10;
+  transition: transform 0.3s ease;
 }
 
-.misc-prev {
-  left: 10px;
+.misc-gallery-grid img:hover {
+  transform: scale(1.05);
 }
 
-.misc-next {
-  right: 10px;
+@media (max-width: 768px) {
+  .misc-gallery-grid img {
+    width: 45vw;
+  }
 }
 
 @media (max-width: 480px) {
-  .misc-gallery-grid {
-    flex-wrap: nowrap; /* eller ta bort om du vill scrolla horisontellt */
-    overflow-x: auto;  /* gör att man kan scrolla horisontellt */
-  }
-  
   .misc-gallery-grid img {
-    width: 80vw; /* visa en bild i taget ungefär */
-    flex-shrink: 0; /* förhindra att bilden krymper */
+    width: 90vw;
   }
 }
 
-.misc-prev,
-.misc-next {
-    font-size: 1.5rem;
-    padding: 0.2rem 0.5rem;
-  }
+/* Modal-stil */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #444;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 1;
+  user-select: none;
+}
+
 
 
 /*BACK TO PROJECTS*/
