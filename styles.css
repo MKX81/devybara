@@ -14,7 +14,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   letter-spacing: 0.1rem;
   color: #222;
   margin:1rem 0 0.5rem 0;
@@ -302,7 +302,7 @@ main {
 
 .scroll-text {
   font-size: 1rem;
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: whitesmoke;
   margin-bottom: 0.1rem;
   font-weight: 600;
@@ -376,7 +376,7 @@ main {
 }
 
 .hero-text h1 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -414,7 +414,7 @@ main {
 }
 
 .about-wrapper h1 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -536,7 +536,7 @@ main {
 }
 
 .contact-wrapper h1 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Not Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -761,7 +761,7 @@ main {
   padding-bottom: 0.5rem;
   text-align: center;
   margin-bottom: 1rem;
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .projects-grid {
@@ -880,7 +880,7 @@ footer {
 }
 
 .quote-title {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: whitesmoke;
@@ -956,8 +956,8 @@ footer {
   max-width: 90%;
   background-color: transparent;
   border-radius: 1.5rem;
-  color: #222;
-  font-family: "Winky Sans", sans-serif;
+  color: #A64208;
+  font-weight: 1000;
   font-size: clamp(2rem, 5vw, 3rem);
   letter-spacing: 0.3rem;
 }
@@ -1015,7 +1015,7 @@ footer {
 }
 
 .project-overview-title {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -1055,32 +1055,13 @@ footer {
 }
 
 /* INFO-BLOCKS */
+/* ===== Info-block (övriga sektioner) ===== */
 .info-block {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   padding: 0.5rem;
   border-radius: 0.8rem;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1rem;
-  margin-top: 0.5rem;
-}
-
-.box {
-  background-color: rgba(245, 245, 245, 0.90);
-  padding: 0.6rem 1rem;
-  border-radius: 1.6rem; /* Mer rundad */
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
-  font-size: 1.15rem; /* Lite större text */
-  color: #333;
-  text-align: center;
-  word-break: break-word;
-  white-space: normal; 
-  max-width: 100%; 
-  flex: 1 1 auto;
 }
 
 .info-block:hover {
@@ -1089,7 +1070,7 @@ footer {
 }
 
 .info-block h2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-bottom: 0.8rem;
   color: whitesmoke;
   font-weight: 600;
@@ -1100,16 +1081,52 @@ footer {
 }
 
 .info-block h2 i {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: whitesmoke;
 }
 
 .info-block p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   color: white;
   margin: 0;
 }
+
+
+/* ===== Box-container för ikoner + text ===== */
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Varje box blir flex-rad med ikon + text */
+.box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(245, 245, 245, 0.9);
+  padding: 0.4rem 0.8rem;
+  border-radius: 1.6rem;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  font-size: 1.15rem;
+  color: #333;
+  word-break: break-word;
+  white-space: normal;
+  width: fit-content;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+/* Gemensam ikon-klass för alla png-ikoner */
+.box-icon {
+  width: 8rem;
+  height: 2rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 
 .project-overview-bottom {
   display: flex;
@@ -1127,7 +1144,7 @@ footer {
 
 .overview-subtitle {
   flex: 1;
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 1.8rem;
   color: #333;
   margin: 1rem;
@@ -1239,7 +1256,7 @@ footer {
 }
 
 .my-contributions-area h2 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -1249,14 +1266,14 @@ footer {
 
 .contributions-container {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: flex-start;
   flex-wrap: nowrap;
 }
 
 .left-image {
   position: relative;
-  width: 30%;
+  width: 50%;
   height: 300px;
   overflow: hidden;
   flex-shrink: 0;
@@ -1269,6 +1286,7 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: scale(1.2);
   opacity: 0;
   transition: opacity 1s ease-in-out;
   pointer-events: none;
@@ -1283,7 +1301,7 @@ footer {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
   align-items: center;
   justify-content: flex-start;
 }
@@ -1294,7 +1312,7 @@ footer {
   padding: 0.75rem 1rem;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1304,6 +1322,23 @@ footer {
   width: fit-content;
   max-width: 100%;
 }
+
+.contribution-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.contribution-footer p {
+  color: #555;
+  font-weight: 400;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  font-style: italic;
+}
+
 
 /* ===================== Responsive Anpassning ===================== */
 
@@ -1354,7 +1389,7 @@ footer {
 }
 
 .images-section h2 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #333;
@@ -1404,14 +1439,15 @@ footer {
   margin: 0 auto;
   font-family: "Noto Sans", sans-serif;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   background-color: #1e1e1e;
+  outline: 2px solid blue;
 }
 
 .multi-carousel-section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: whitesmoke;
 }
 
@@ -1489,24 +1525,43 @@ footer {
   -ms-user-select: none;
 }
 
-/* Responsivt: 2 bilder på mindre skärm */
 @media (max-width: 768px) {
+  /* Behåll maxbredd och centrering men ta bort onödig padding/marginal */
+  .multi-carousel-section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem 1rem; /* Lite mindre padding för mobil */
+    margin-bottom: 0;      /* Ingen extra margin under sektionen */
+  }
+
+  /* Rubriken anpassas för mindre skärm */
+  .multi-carousel-section h2 {
+    font-size: 1.6rem;
+    margin: 0 0 1rem 0;   /* Inga toppmarginaler, men lite under */
+  }
+
+  /* Bildkarusellens items — visa 2 bilder bredvid varandra med lite gap */
   .multi-carousel-item {
     flex: 0 0 calc(50% - 10px);
-  }
-}
-
-/* Responsivt: 1 bild på mobil */
-@media (max-width: 480px) {
-  .multi-carousel-item {
-    flex: 0 0 100%;
-    margin-right: 0;
+    margin-right: 0;  /* Ta bort extra marginal om satt */
   }
 
+  /* Om du har gap mellan bilder via flex-gap */
+  .multi-carousel-track {
+    gap: 10px;
+  }
+
+  /* Navigationsknapparna mindre och enklare på mobil */
   .multi-prev,
   .multi-next {
     font-size: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+
+  /* Ta bort margin eller padding på närliggande sektioner om behövs */
+  .ntd-area {
+    margin-top: 0;
+    padding-top: 1rem; /* eller justera efter behov */
   }
 }
 
@@ -1515,14 +1570,16 @@ footer {
 
 .ntd-area {
   font-family: 'Noto Sans', sans-serif;
+  background-color: #f2f1df;
   max-width: 2000px;
   margin: 0 auto;
   color: #333;
   padding: 1rem;
+  outline: 2px solid green;
 }
 
 .ntd-area h2 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -1549,20 +1606,6 @@ footer {
   border: none;
 }
 
-@media (max-width: 768px) {
-  .ntd-area {
-    padding: 0;
-  }
-  
-  .ntd-video-iframe-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    border-radius: 0;
-  }
-}
-
-
 /*BRANDING-SECTION */
 
 .branding-area {
@@ -1575,7 +1618,7 @@ footer {
 }
 
 .branding-area h2 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -1686,7 +1729,7 @@ footer {
 }
 
 .user-tests-area h2 {
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -1712,15 +1755,10 @@ footer {
   min-width: 250px;
 }
 
-.left-user-tests strong {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #222;
-}
-
 .left-user-tests p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.5;
+  font-weight: 500;
   color: #333;
 }
 
@@ -1771,7 +1809,7 @@ footer {
 .misc-project-gallery h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  font-family: "Winky Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: whitesmoke;
 }
 
@@ -1863,7 +1901,7 @@ footer {
 }
 
 .back-to-projects h3 {
-  font-family: 'Winky Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   color: #333;
   cursor: pointer;
