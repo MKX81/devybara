@@ -948,7 +948,7 @@ footer {
   position: relative;
   z-index: 1;
 
-  background-image: url('images/T_Skybox_Panoramic03.png');
+  background-image: url('foxio/images/T_Skybox_Panoramic03.png');
   background-size: cover;        
   background-position: center;  
   background-repeat: no-repeat;
