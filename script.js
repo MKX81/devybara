@@ -137,6 +137,12 @@ if (form && confirmation) {
     return 3;
   }
 
+  function getItemWidth() {
+    // Läs gap från CSS, default till 0
+    const gap = parseInt(getComputedStyle(track).gap) || 0;
+    return items[0].offsetWidth + gap;
+  }
+
   // Klona första N items för oändlig loop
   function cloneItems() {
     const visibleCount = getVisibleCount();
@@ -162,8 +168,7 @@ if (form && confirmation) {
 
     if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-    const itemWidth = items[0].getBoundingClientRect().width + 15;
-    const moveX = -currentIndex * itemWidth;
+    const moveX = -currentIndex * getItemWidth();
 
     track.style.transition = 'transform 0.5s ease';
     track.style.transform = `translateX(${moveX}px)`;
@@ -176,9 +181,7 @@ if (form && confirmation) {
     currentIndex++;
 
     track.style.transition = 'transform 0.5s ease';
-
-    const itemWidth = items[0].getBoundingClientRect().width + 15;
-    const moveX = -currentIndex * itemWidth;
+    const moveX = -currentIndex * getItemWidth();
     track.style.transform = `translateX(${moveX}px)`;
 
     if (currentIndex === maxIndex) {
@@ -197,8 +200,7 @@ if (form && confirmation) {
     if (currentIndex === 0) {
       currentIndex = maxIndex;
       track.style.transition = 'none';
-      const itemWidth = items[0].getBoundingClientRect().width + 15;
-      const moveX = -currentIndex * itemWidth;
+      const moveX = -currentIndex * getItemWidth();
       track.style.transform = `translateX(${moveX}px)`;
 
       // Force reflow before animating back
@@ -206,7 +208,7 @@ if (form && confirmation) {
 
       currentIndex--;
       track.style.transition = 'transform 0.5s ease';
-      const moveX2 = -currentIndex * itemWidth;
+      const moveX2 = -currentIndex * getItemWidth();
       track.style.transform = `translateX(${moveX2}px)`;
     } else {
       currentIndex--;
