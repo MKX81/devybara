@@ -1315,7 +1315,6 @@ footer {
   width: 100%;
   border-radius: 1rem;
   display: block;
-  outline: 1px solid red;
 }
 
 .multi-prev,
@@ -1323,29 +1322,36 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
   border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0.3rem 0.7rem;
+  color: rgba(255, 255, 255, 0.4); /* Halvtransparent vit färg */
+  font-size: 1.2rem; 
+  padding: 0.2rem 0.5rem;
   cursor: pointer;
   border-radius: 4px;
   user-select: none;
   z-index: 10;
+  transition: color 0.3s ease;
+  background: transparent;
 }
 
 .multi-prev {
-  left: 5px;
+  left: 4px;
 }
 
 .multi-next {
-  right: 5px;
+  right: 4px;
+}
+
+.multi-prev:hover,
+.multi-next:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .multi-carousel-viewport.dragging {
   cursor: grabbing;
   cursor: -webkit-grabbing;
 }
+
 .multi-carousel-viewport {
   cursor: grab;
   cursor: -webkit-grab;
@@ -1375,10 +1381,11 @@ footer {
 
   .multi-prev,
   .multi-next {
-    font-size: 1.5rem;
-    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    padding: 1rem;
   }
 }
+
 
 /* NIGHT TO DAY TRANSITION */
 
