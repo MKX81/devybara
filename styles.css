@@ -1315,6 +1315,7 @@ footer {
   width: 100%;
   border-radius: 1rem;
   display: block;
+  outline: 1px solid red;
 }
 
 .multi-prev,
