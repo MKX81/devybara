@@ -943,10 +943,15 @@ footer {
   max-width: 2000px;
   margin: 0 auto;
   padding-bottom: 2rem;
-  background-color: #f2b885;
+  background-color: grey;
   text-align: center;
   position: relative;
   z-index: 1;
+
+  background-image: url('images/T_Skybox_Panoramic03.png');
+  background-size: cover;        
+  background-position: center;  
+  background-repeat: no-repeat;
 }
 
 .projectpage-title-start h1 {
@@ -956,7 +961,7 @@ footer {
   max-width: 90%;
   background-color: transparent;
   border-radius: 1.5rem;
-  color: #A64208;
+  color: #222;
   font-weight: 1000;
   font-size: clamp(2rem, 5vw, 3rem);
   letter-spacing: 0.3rem;
@@ -1133,7 +1138,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
   margin-top: 3rem;
   max-width: 90%;
   margin-left: auto;
@@ -1145,10 +1150,9 @@ footer {
 .overview-subtitle {
   flex: 1;
   font-family: "Noto Sans", sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #333;
   margin: 1rem;
-  text-align : left;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1161,6 +1165,7 @@ footer {
 .overview-subtitle p {
   font-family: "Noto Serif", serif;
   font-size: 1rem;
+  text-align: justify;
   margin-top: 0.5rem;
   line-height: 1.6;
 }
@@ -1215,10 +1220,13 @@ footer {
     margin: 0 auto;
   }
 
-  .overview-subtitle {
-    width: 100%;
+  .overview-subtitle h3 {
     text-align: center;
-    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .overview-subtitle p {
+    text-align: justify;
   }
 
   .overview-subtitle p {
@@ -1273,8 +1281,9 @@ footer {
 
 .left-image {
   position: relative;
-  width: 50%;
-  height: 300px;
+  transform: scale(1.2);
+  width: 25rem;
+  height: 25rem;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -1286,7 +1295,6 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.2);
   opacity: 0;
   transition: opacity 1s ease-in-out;
   pointer-events: none;
@@ -1340,8 +1348,6 @@ footer {
 }
 
 
-/* ===================== Responsive Anpassning ===================== */
-
 @media (max-width: 1024px) {
   .left-image {
     width: 100%;
@@ -1353,8 +1359,10 @@ footer {
   }
 
   .right-contributions {
+    display: flex;           /* säkerställ flex */
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start; /* toppjustera blocken */
   }
 
   .contribution-block {
@@ -1363,15 +1371,6 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
-  .left-image {
-    height: 200px;
-  }
-
-  .contribution-block {
-    flex: 1 1 calc(50% - 0.75rem); /* två per rad på liten mobil */
-  }
-}
 
 
 
@@ -1393,22 +1392,43 @@ footer {
   font-size: 2.5rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 2rem;
+  margin: 2rem 0 1rem 0;
   text-align: center;
 }
 
+/* Grid för 3D iframes: 4 per rad */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
-/* Gör iframes responsive och rundade hörn */
-.image-grid iframe {
+/* Grid för foton: 2 per rad */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Stil för iframes och bilder i 3D-griden */
+.image-grid iframe,
+.image-grid img {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 1rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  display: block;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* Stil för bilder i photo-grid */
+.photo-grid img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  object-fit: contain;
   display: block;
   overflow: hidden;
 }
@@ -1418,18 +1438,26 @@ footer {
   .images-section {
     padding: 0.1rem;
   }
-  
+
   .image-grid {
-    grid-template-columns: 1fr; /* En kolumn på mobil */
-    gap: 1rem;
+    grid-template-columns: 1fr;
   }
-  
-  .image-grid iframe {
-    width: 100vw; /* Tar hela viewport-bredden */
-    max-width: 100vw;
-    border-radius: 0; /* Om du vill utan rundade hörn på mobil, annars ta bort */
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+  }
+
+  .image-grid iframe,
+  .image-grid img,
+  .photo-grid img {
+    width: 100%;
+    max-width: 100%;
   }
 }
+
+
+
 
 /*BILDGALLERI-SEKTION*/
 
@@ -1441,7 +1469,6 @@ footer {
   text-align: center;
   padding: 1rem;
   background-color: #1e1e1e;
-  outline: 2px solid blue;
 }
 
 .multi-carousel-section h2 {
@@ -1557,16 +1584,9 @@ footer {
     font-size: 1rem;
     padding: 0.5rem;
   }
-
-  /* Ta bort margin eller padding på närliggande sektioner om behövs */
-  .ntd-area {
-    margin-top: 0;
-    padding-top: 1rem; /* eller justera efter behov */
-  }
 }
 
-
-/* NIGHT TO DAY TRANSITION */
+  /* NIGHT TO DAY TRANSITION */
 
 .ntd-area {
   font-family: 'Noto Sans', sans-serif;
@@ -1575,7 +1595,6 @@ footer {
   margin: 0 auto;
   color: #333;
   padding: 1rem;
-  outline: 2px solid green;
 }
 
 .ntd-area h2 {
@@ -1589,7 +1608,7 @@ footer {
 
 .ntd-video-iframe-container {
   position: relative;
-  width: 90vw;
+  width: 90%;
   max-width: 2000px;
   margin: 2rem auto;
   aspect-ratio: 16 / 9;
@@ -1605,6 +1624,22 @@ footer {
   display: block;
   border: none;
 }
+
+.ntd-video-text p {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 400;
+  color: whitesmoke;
+  max-width: 90%;
+  margin: 1rem auto 0 auto;
+}
+
 
 /*BRANDING-SECTION */
 
@@ -1723,9 +1758,8 @@ footer {
   font-family: 'Noto Sans', sans-serif;
   max-width: 2000px;
   margin: 0 auto;
-  color: #333;
   padding: 1rem;
-  background-color:#bf6341;
+  background-color: #f2f1df;
 }
 
 .user-tests-area h2 {
@@ -1753,13 +1787,15 @@ footer {
   flex-direction: column;
   gap: 0.75rem;
   min-width: 250px;
+  
 }
 
 .left-user-tests p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
   color: #333;
+  text-align: justify;
 }
 
 /* Bildområde till höger med två bilder i rad */
