@@ -1303,12 +1303,12 @@ footer {
 
 .multi-carousel-track {
   display: flex;
+  gap: 15px;
   transition: transform 0.5s ease;
 }
 
 .multi-carousel-item {
-  flex: 0 0 calc(33.333% - 10px); /* 3 bilder i rad minus lite mellanrum */
-  margin-right: 15px;
+  flex: 0 0 calc(33.333% - 10px);
 }
 
 .multi-carousel-item img {
