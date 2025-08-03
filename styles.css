@@ -282,7 +282,7 @@ p {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 1rem;
   border-radius: 1rem;
   width: 50%;
@@ -291,7 +291,7 @@ p {
 
 .hero-text h1 {
   font-family: "Noto Sans", sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1rem;
   color: whitesmoke;
@@ -1090,7 +1090,7 @@ footer {
 /* Gemensam ikon-klass för alla png-ikoner */
 .box-icon {
   width: auto;
-  height: 10px;
+  height: 20px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -1219,20 +1219,18 @@ footer {
 
 /*MY CONTRIBUTIONS */
 .my-contributions-area {
-  font-family: 'Noto Sans', sans-serif;
+  width:100%;
   max-width: 2000px;
   margin: 0 auto;
   padding: 1rem;
-  color: #333;
 }
 
 .my-contributions-area h2 {
   font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #222;
   text-align: center;
-  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .contributions-container {
@@ -1278,20 +1276,22 @@ footer {
 }
 
 .contribution-block {
-  background-color: #f2f1df;
-  color: #333;
+  background-color: whitesmoke;
   padding: 0.75rem 1rem;
-  border-radius: 20px;
+  border-radius: 2rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 0.75rem;
   cursor: default;
-  width: fit-content;
   max-width: 100%;
+  flex: 1 1 calc(33.333% - 1rem); 
+  min-width: 200px;              
+  max-width: 100%;
+  box-sizing: border-box;        
 }
 
 .contribution-footer {
@@ -1310,30 +1310,27 @@ footer {
   font-style: italic;
 }
 
-
-@media (max-width: 1024px) {
-  .left-image {
-    width: 100%;
-    height: 250px;
-  }
-
+@media (max-width: 768px) {
   .contributions-container {
     flex-direction: column;
   }
 
-  .right-contributions {
-    display: flex;       
-    flex-direction: row;
+  .left-image {
+    order: -1;
+    margin: 0 auto;
+    display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: center;
   }
 
-  .contribution-block {
-    flex: 1 1 calc(33.333% - 1rem); /* tre per rad */
-    min-width: 150px;
+  .right-contributions {
+    order: 0;
+  }
+
+  .contribution-footer {
+    order: 1;
   }
 }
-
 
 
 
@@ -1796,20 +1793,21 @@ footer {
 
 /* MISC GALLERY */
 .misc-project-gallery {
-  font-family: "Noto Sans", sans-serif;
   max-width: 2000px;
+  width:100%;
   margin: 0 auto;
-  color: #fff;
-  padding: 2rem;
+  color: whitesmoke;
+  padding: 1rem;
   background-color: #1e1e1e;
   text-align: center;
 }
 
 .misc-project-gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-family: "Noto Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
   color: whitesmoke;
+  padding-bottom: 1.5rem;
 }
 
 .misc-gallery-grid {
@@ -1831,18 +1829,6 @@ footer {
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .misc-gallery-grid img {
-    width: 45vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .misc-gallery-grid img {
-    width: 90vw;
-  }
-}
-
 /* Modal-stil */
 .modal {
   position: fixed;
@@ -1850,11 +1836,11 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(30, 30, 30, 0.9);
+  background: rgba(30, 30, 30, 0.8);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .modal[aria-hidden="false"] {
@@ -1863,13 +1849,18 @@ footer {
 
 .modal-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .modal-content img {
-  max-width: 100%;
-  max-height: 100%;
+  display: block;
+  margin: auto;
+  max-width: min(80%, 1500px);
+  max-height: min(50%, 800px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 0 15px rgba(255,255,255,0.2);
 }
@@ -1878,18 +1869,48 @@ footer {
   position: absolute;
   top: -10px;
   right: -10px;
-  background: #444;
   border: none;
-  color: white;
-  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  font-size: 1.5rem;
   padding: 0 0.5rem;
   cursor: pointer;
   border-radius: 50%;
   line-height: 1;
   user-select: none;
+  transition: color 0.3s ease;
 }
 
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  color: rgba(255, 255, 255, 0.4); /* Halvtransparent vit färg */
+  font-size: 1.2rem; 
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  z-index: 10;
+  transition: color 0.3s ease;
+  background: transparent;
+}
 
+.modal-prev {
+  left: 4px;
+}
+
+.modal-next {
+  right: 4px;
+}
+
+.modal-prev:hover,
+.modal-next:hover,
+.modal-close:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
 
 /*BACK TO PROJECTS*/
 .back-to-projects {
