@@ -1487,11 +1487,11 @@ footer {
 }
 
 .multi-prev {
-  left: 4px;
+  left: 0.5rem;
 }
 
 .multi-next {
-  right: 4px;
+  right: 0.5rem;
 }
 
 .multi-prev:hover,
