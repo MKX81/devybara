@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Thiago Sena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,15 +22,24 @@
       <img src="images/Me_round_profile_pic.png" alt="Logo" />
     </a>
   </div>
-  <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-    <i class="fas fa-bars"></i>
+  <div
+    class="hamburger-lines"
+    id="hamburger"
+    aria-label="Toggle menu"
+    role="button"
+    tabindex="0"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
   <nav class="mobile-links" id="mobileLinks">
     <a href="#my-project-scroll">My Projects</a>
     <a href="about.html">About Me</a>
-    <a href="#contact-section">Contact</a>
+    <a href="about.html#contact-section">Contact</a>
   </nav>
 </div>
+
 
 
 <!-- Desktopmeny -->
@@ -45,7 +54,7 @@
     <nav class="desktop-links">
       <a href="#my-project-scroll">My projects</a>
       <a href="about.html">About Me</a>
-      <a href="#contact-section">Contact</a>
+      <a href="about.html#contact-section">Contact</a>
     </nav>
   </div>
 </header>
@@ -58,53 +67,46 @@
         <h1>Hi, I'm Thiago</h1>
         <h2>I create immersive virtual experiences for any project.</h2>
     </div>
-  </section>
   
-  <div class="scroll-down-wrapper" onclick="scrollToProjects()">
-    <p class="scroll-text">My projects</p>
-    <div class="scroll-down-indicator">
+    <div class="scroll-down-wrapper" onclick="scrollToProjects()">
+     <p class="scroll-text">My projects</p>
+    <p class="scroll-down-indicator">
       <i class="fa-solid fa-caret-down"></i>
-    </div>
+    </p>
   </div>
 </section>
  
 <div id="my-project-scroll" style="text-align: center;">
-  <h1>My Projects</h1>
 </div>
-  <section class="projects-wrapper">
-    <section id="projects" class="projects-section">
-      <div class="projects-grid">
-  
-        <div class="project-card">
-          <img src="images/image (6).png" alt="Foxio" />
-          <h3>FOXIO</h3>
-          <p>Foxio is a gamified VR app intended to be used  for cognitive training for children and teens  with some focus and patience difficulties.</p>
-          <div class="tags">
-            <span class="tag">Unity</span>
-            <span class="tag">C#</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Storytelling</span>
-            <span class="tag">Procreate</span>
-            <span class="tag">Miro/Notion</span>
-            <span class="tag">Project management</span>
-            <span class="tag">Agile</span>
+  <section id="projects" class="projects-section">
+    <h1>My Projects</h1>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="images/image (6).png" alt="Foxio" />
+        <h3>FOXIO</h3>
+        <p>Foxio is a gamified VR app intended to be used  for cognitive training for children and teens  with some focus and patience difficulties.</p>
+        <div class="tag-container">
+          <div class="tag">
+            <img src="images/128px-Unity_2021.svg.png" alt="Unity icon" class="tag-icon">
           </div>
-          <a href="foxio.html" class="btn">View Project</a>
+          <div class="tag">
+            <img src="images/Procreate-Emblem (2).png" alt="Procreate" class="tag-icon">
+          </div>
+          <div class="tag">
+            <img src="images/256px-Autodesk_Maya_logo.svg.png" alt="Maya" class="tag-icon">
+          </div>
+          <div class="tag">
+            <img src="images/GitHub_(4).svg" alt="GitHub" class="tag-icon">
+          </div>
+        </div>
+        <a href="foxio.html" class="btn">View Project</a>
         </div>
   
-        <div class="project-card"">
+        <div class="project-card">
           <img src="images/ATOMICMATCH KV N LOGO-01.png" alt="Atomic-Match" />
           <h3>Atomic Match</h3>
           <p>Chemistry XR game for high school students.</p>
-          <div class="tags">
-            <span class="tag">Unity</span>
-            <span class="tag">C#</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Storytelling</span>
-            <span class="tag">Procreate</span>
-            <span class="tag">Miro</span>
-            <span class="tag">Project management</span>
-          </div>
+          
           <a href="atomicmatch.html" class="btn">View Project</a>
         </div>
 
@@ -112,16 +114,7 @@
           <img src="images/Screenshot 2025-04-28 at 12.44.57.png" alt="Umemuru Garden" />
           <h3>Umemuru Garden</h3>
           <p>Tranquility and peace</p>
-          <div class="tags">
-            <span class="tag">Unity</span>
-            <span class="tag">C#</span>
-            <span class="tag">Maya</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Storytelling</span>
-            <span class="tag">Procreate</span>
-            <span class="tag">Miro</span>
-            <span class="tag">Project management</span>
-          </div>
+          
           <a href="umemurugarden.html" class="btn">View Project</a>
         </div>
   
@@ -129,10 +122,11 @@
     </section>
   
   </section>
-  <div id="contact-section" style="text-align: center;">
-    <h1>Contact me</h1>
-  </div>
+  
   <section class="contact-wrapper">
+    <div id="contact-section" style="text-align: center;">
+      <h1>Contact me</h1>
+    </div>
     <form class="contact-form" action="javascript:void(0);" method="post">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
