@@ -16,22 +16,29 @@
 </head>
 <body>
 
- <!-- Mobilmeny -->
- <div class="mobile-nav">
-  <div class="mobile-logo">
-    <a href="index.html">
-      <img src="images/Me_round_profile_pic.png" alt="Logo" />
-    </a>
+  <div class="mobile-nav">
+    <div class="mobile-logo">
+      <a href="index.html">
+        <img src="images/Me_round_profile_pic.png" alt="Logo" />
+      </a>
+    </div>
+    <div
+      class="hamburger-lines"
+      id="hamburger"
+      aria-label="Toggle menu"
+      role="button"
+      tabindex="0"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="mobile-links" id="mobileLinks">
+      <a href="#my-project-scroll">My Projects</a>
+      <a href="about.html">About Me</a>
+      <a href="about.html#contact-section">Contact</a>
+    </nav>
   </div>
-  <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-    <i class="fas fa-bars"></i>
-  </div>
-  <nav class="mobile-links" id="mobileLinks">
-    <a href="index.html#my-project-scroll">My Projects</a>
-    <a href="about.html">About Me</a>
-    <a href="index.html#contact-section">Contact</a>
-  </nav>
-</div>
 
 
 <!-- Desktopmeny -->
@@ -55,7 +62,7 @@
 
   <section class="projectpage-start">
 
-    <div class="projectpage-title-start fade-in-section">
+    <div class="projectpage-title-start">
       <h1>FOXIO &#129418;</h1>
     </div>
   
@@ -71,7 +78,7 @@
   </section>
 
   <section class="project-overview-area">
-    <h2 class="project-overview-title fade-in-section">Project Overview</h2>
+    <h2 class="project-overview-title">Project Overview</h2>
     
     <div class="project-overview-info-blocks fade-in-section">
       
@@ -123,8 +130,8 @@
     </div>
   
     <!-- Projektbeskrivning + video -->
-    <div class="project-overview-bottom">
-      <div class="overview-subtitle fade-in-section">
+    <div class="project-overview-bottom fade-in-section">
+      <div class="overview-subtitle">
         <h3>About this project</h3>
         <p><strong>Foxio</strong> is a gamified VR app that supports cognitive training for adolescents aged 12-16 with focus, memory, or patience challenges. Designed for users with diagnosed or suspected cognitive disabilities, it offers an engaging, personalized experience rooted in research-backed gameplay.</p>
         <p>By combining immersive XR technology with practical skill-building, Foxio helps make everyday tasks easier while boosting attention, memory, and emotional regulation in a fun and motivating way.</p>
@@ -140,7 +147,7 @@
   </section>
   
   <section class="my-contributions-area">
-    <div class="fade-in-section"><h2>My contributions</h2></div>
+    <h2>My contributions</h2>
     <div class="contributions-container fade-in-section">
       <div class="left-image">
         <img class="fade-image active" src="images/04 ME - PMybara.png" alt="Bild 1" />
@@ -171,7 +178,7 @@
     
 
   <section class="images-section">
-    <div class="fade-in-section"><h2>3D Models</h2></div>
+    <h2>3D Models</h2>
     <div class="image-grid fade-in-section">
 
       <iframe 
@@ -338,7 +345,7 @@
   
 
   <section class="branding-area">
-    <div class="fade-in-section"><h2>Branding</h2></div>
+    <h2>Branding</h2>
     <div class="branding-images-grid fade-in-section">
       <img src="foxio_images/image (6).png" alt="Branding 1" class="img1" />
       <img src="foxio_images/image (7).png" alt="Branding 2" class="img2" />
@@ -351,7 +358,7 @@
 
   
   <section class="user-tests-area">
-    <div class="fade-in-section"><h2>User Tests</h2></div>
+    <h2>User Tests</h2>
     <div class="user-tests-container">
       <div class="left-user-tests fade-in-section">
         <p>We had the privilege of visiting Stenhammarskolan in Flen,Sweden, a school that’s truly pioneering the use of XR in education in Sweden.</p>
@@ -366,23 +373,38 @@
   </section>
   
   <section class="misc-project-gallery">
-    <div class="fade-in-section"><h2>Mitt Bildgalleri</h2></div>
+    <h2>Picture gallery</h2>
+  
     <div class="misc-gallery-grid fade-in-section">
-      <img src="bild1.jpg" alt="Bild 1" />
-      <img src="bild2.jpg" alt="Bild 2" />
-      <img src="bild3.jpg" alt="Bild 3" />
-      <img src="bild4.jpg" alt="Bild 4" />
-      <!-- fler bilder -->
+      <img src="images/Foxio_other_pics/Other_1.png" alt="Bild 1" />
+      <img src="images/Foxio_other_pics/Other_2.png" alt="Bild 2" />
+      <img src="images/Foxio_other_pics/Other_3.png" alt="Bild 3" />
+      <img src="images/Foxio_other_pics/Other_4.png" alt="Bild 4" />
+      <img src="images/Foxio_other_pics/Other_1.png" alt="Bild 1" />
+      <img src="images/Foxio_other_pics/Other_2.png" alt="Bild 2" />
+      <img src="images/Foxio_other_pics/Other_3.png" alt="Bild 3" />
+      <img src="images/Foxio_other_pics/Other_4.png" alt="Bild 4" />
+      <!-- fler bilder vid behov -->
     </div>
   </section>
-
-  <!-- Modal för stor bild -->
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button class="modal-close" aria-label="Stäng bild">&times;</button>
-    <img src="" alt="" />
+  
+  <!-- Modal för förstorad bildvisning -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Stäng modal">
+        <i class="fas fa-times"></i>
+      </button>
+      <img src="" alt="">
+      <button class="modal-prev" aria-label="Föregående bild">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="modal-next" aria-label="Nästa bild">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
   </div>
-</div>
+  
+</section>
   
   <section class="back-to-projects">
     <div class="fade-in-section"><a href="index.html" tabindex="0" aria-label="Back to my projects">
