@@ -259,7 +259,7 @@ p {
 
 .hero {
   position: relative;
-  min-height:75vh;
+  height: calc(100vh - 5.5rem);
   width: 100%;
   max-width:1400px;
   margin: 0 auto;
