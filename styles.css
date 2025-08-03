@@ -9,16 +9,26 @@ html, body {
   padding: 0;
   color: #333;
   font-family: "Noto Sans", serif;
-  background-color: #f6c79e;
-  overflow-x: hidden;
+  background-color: #f2f1df;
   scroll-behavior: smooth;
+  
+}
+header {
+  background-color: #1e1e1e;
+  padding-top: env(safe-area-inset-top);
+}
+main {
+  max-width: 2000px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Sans", sans-serif;
+  font-weight:700;
   letter-spacing: 0.1rem;
   color: #222;
-  margin:1rem 0 0.5rem 0;
 }
 
 p {
@@ -26,10 +36,9 @@ p {
     color: #333;
   }
 
-
 .fade-in-section {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(2rem);
     transition: opacity 1s ease-out, transform 1s ease-out;
     will-change: opacity, transform;
   }
@@ -38,96 +47,9 @@ p {
     opacity: 1;
     transform: none;
   }
-  
 
-main {
-  max-width: 100%;    
-  margin: 0 auto;      /* Centrerar blocket horisontellt */
-  box-sizing: border-box; /* Säkerställer att padding inte ökar bredden */
 
-}
-
-/* === DESKTOP HEADER === */
-.glass-header {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem;
-  border-radius: 1rem;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  z-index: 1000;
-  transition: all 0.5s ease;
-}
-
-.glass-header:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* centrerar hela raden */
-  gap: 3rem; /* avstånd mellan logga och länkar */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.logo {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  /* kan lägga till padding eller margin om du vill */
-}
-
-.logo img {
-  height: 5rem;
-  width: auto;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.logo img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.1);
-}
-
-.desktop-links {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 2rem;
-}
-
-.desktop-links a {
-  text-decoration: none;
-  color: #1e1e1e;
-  font-weight: 500;
-  position: relative;
-  padding: 0.3rem 0.5rem;
-}
-
-.desktop-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: #bf6341;
-  transition: width 0.3s ease;
-}
-
-.desktop-links a:hover::after {
-  width: 100%;
-}
-
-/* Ny header-variant som är "i flödet" och ligger högst upp */
+/* HEADER */
 .glass-header-flow {
   position: static;
   margin: 0 auto;
@@ -136,18 +58,13 @@ main {
   background-color: #1e1e1e;
   padding: 0.1rem;
   border-radius: 0;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  z-index: auto;    /* normalt z-index */
   transition: all 0.5s ease;
 }
 
-/* Hover-effekt kan behållas */
 .glass-header-flow:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Behåll samma struktur som tidigare */
 .glass-header-flow .nav-content {
   display: flex;
   align-items: center;
@@ -159,15 +76,15 @@ main {
 }
 
 .glass-header-flow .logo img {
-  height: 5rem;
+  height: 3rem;
   width: auto;
   filter: grayscale(100%);
+  transform: scale(1.2);
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .glass-header-flow .logo img:hover {
   filter: grayscale(0%);
-  transform: scale(1.1);
 }
 
 .glass-header-flow .desktop-links {
@@ -199,7 +116,7 @@ main {
   width: 100%;
 }
 
-/* === MOBIL HEADER === */
+/* === MOBILHEADER === */
 .mobile-nav {
   display: none;
   position: relative;
@@ -219,20 +136,41 @@ main {
 }
 
 /* Hamburgaren */
-.hamburger {
-  font-size: 2rem;
-  cursor: pointer;
-  color: whitesmoke;
-  padding: 1rem;
+.hamburger-lines {
+  width: 30px;
+  height: 22px;
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   z-index: 1100;
-  text-shadow: 0.1rem 0.1rem 0.2rem #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-lines span {
+  height: 4px;
+  background: whitesmoke;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Animation för "öppen meny" */
+.hamburger-lines.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-lines.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-lines.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Mobil-länkar */
-.mobile-links {
+#mobileLinks {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -252,14 +190,14 @@ main {
   z-index: 1000;
 }
 
-.mobile-links a {
+#mobileLinks a {
   font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
   color: white;
 }
 
-.mobile-links.active {
+#mobileLinks.active {
   transform: translateY(0);
   visibility: visible;
   opacity: 1;
@@ -289,11 +227,100 @@ main {
   }
 }
 
+/* === MEDIA QUERY: MOBILVERSION === */
+@media (max-width: 768px) {
+  .glass-header {
+    display: none;  /* Dölj desktop-header på mobil */
+  }
+
+  .glass-header-flow {
+    display: none;  /* Dölj desktopmenyn på mobil */
+  }
+
+  .mobile-nav {
+    display: block; /* Visa mobilmenyn */
+  }
+
+  .mobile-logo img {
+    height: 4rem;
+  }
+  
+  .mobile-nav {
+    justify-content: center;
+  }
+}
+
+
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height:75vh;
+  width: 100%;
+  max-width:2000px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  padding: 2rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/jessica-lewis-thepaintedsquare-DeyfdybVQhA-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 50%;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: whitesmoke;
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    width: 100%;
+    max-width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    z-index: 1;
+  }
+}
+
 /*PILAR NERÅT MED BOUNCE */
 
 .scroll-down-wrapper {
   position: absolute;   
-  bottom: 4rem;
+  bottom: 0;
   left: 50%;           
   transform: translateX(-50%);
   text-align: center;
@@ -331,7 +358,6 @@ main {
 @media (max-width: 768px) {
   .scroll-down-indicator {
     font-size: 4rem;
-    margin: -2rem;
   }
 
   .scroll-text {
@@ -339,75 +365,11 @@ main {
   }
 }
 
-/* HERO */
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  max-width:2000px;
-  margin: 0 auto;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-  padding: 2rem;
-  border-radius: 0 0 1rem 1rem;
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('images/jessica-lewis-thepaintedsquare-DeyfdybVQhA-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
-.hero-text {
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-  border-radius: 1rem;
-  max-width: 600px;
-  width: 90vw;
-}
-
-.hero-text h1 {
-  font-family: "Noto Sans", sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #222;
-}
-
-.hero-text h2 {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #ffda44;
-}
-
-@media (max-width: 768px) {
-  .hero-text {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    max-width: 90vw;
-    padding: 1.5rem;
-    border-radius: 1.5rem;
-  }
-}
-
-
 /* ABOUT */
-/* Flexbox: bild + text */
 .about-wrapper {
-  max-width: 1200px;
-  margin: 2rem auto 2rem;
+  max-width: 2000px;
+  width: 100%;
+  margin: 0 auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -417,10 +379,7 @@ main {
 .about-wrapper h1 {
   font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
-  font-weight: 600;
-  color: #222;
   text-align: center;
-  margin: 0;
 }
 
 .about-content {
@@ -736,46 +695,32 @@ main {
 }
 
 
-
-
-
-
-/* === MY PROJECTS === */
-
-.projects-wrapper {
-    background-color: #f2b885;
-    padding: 1rem 0;
-    max-width: 2000px;
-    margin: 0 auto;
-    border-radius: 1rem;
-  }
+/* === MY PROJECTS IN INDEX === */
 .projects-section {
-  max-width: 1200px;
-  margin: 1rem auto;
-  padding: 0 1rem;
-
+  background-color: #f2f1df;
+  width:100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .projects-section h1 {
-  color: whitesmoke;
   font-size: 2.5rem;
-  padding-bottom: 0.5rem;
   text-align: center;
-  margin-bottom: 1rem;
-  font-family: "Noto Sans", sans-serif;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .project-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  padding: 1rem;
+  background-color: whitesmoke;
+  border-radius: 0.5rem;
+  box-shadow: 0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47);
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -784,74 +729,110 @@ main {
 
 .project-card:hover {
   transform: scale(1.05);
+  box-shadow: 1.8px 3.7px 3.7px hsl(0deg 0% 0% / 0.44);
 }
 
-.project-card img {
+.project-card > img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border-radius: 0.2rem;
 }
 
 .project-card h3 {
-  margin: 0 0 0.5rem 0;
-  font-family: 'Noto Sans', sans-serif;
-  color: #333;
+  text-align: center;
 }
 
 .project-card p {
-  flex-grow: 1;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #444;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-.tags {
-  margin-bottom: 1rem;
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin-top: 0.5rem;
 }
+
 
 .tag {
-  display: inline-block;
-  background: #eee;
-  color: #555;
-  border-radius: 15px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(245, 245, 245, 0.9);
+  padding: 0.4rem 0.8rem;
+  border-radius: 1.6rem;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  font-size: 1.15rem;
+  color: #333;
+  word-break: break-word;
+  white-space: normal;
+  width: fit-content;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+.tag-icon {
+  width: auto;
+  height: 20px !important;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .btn {
-  display: inline-block;
+  display: block;
+  width: 100%;
   text-align: center;
   padding: 0.6rem 1.2rem;
-  background-color: #1e1e1e;
-  color: white;
-  border-radius: 6px;
+  background-color: #444;
+  color: whitesmoke;
+  border-radius: 0.5rem;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #444;
+  background-color: #2e2d2d;
 }
+
+@media (max-width: 768px) {
+  .project-card p {
+    text-align: center;
+  }
+
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .project-card:hover {
+    transform: none;
+    box-shadow: 0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47);
+  }
+  
+  .btn:hover {
+    background-color: #444;
+  }
+}
+
 
 /* === FOOTER === */
 footer {
   background-color: #1e1e1e;
+  width:100%;
   max-width: 2000px;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 0;
   text-align: center;
-  color: white;
-  font-family: 'Noto Sans', sans-serif;
+  color: whitesmoke;
 }
 
 .social-footer a {
   color: whitesmoke;
-  margin: 0 1rem;
   font-size: 1.8rem;
   transition: color 0.3s ease;
   text-decoration: none;
@@ -862,9 +843,8 @@ footer {
 }
 
 .copyright-text {
-  margin-top: 0.75rem;
-  font-size: 0.9rem;
-  color: #888;
+  font-size: 0.8rem;
+  color: whitesmoke;
 }
 
 /* CITAT */
@@ -918,23 +898,6 @@ footer {
 .quote.focus {
   opacity: 1;
   font-weight: bold;
-}
-
-
-/* === MEDIA QUERIES === */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  .project-card img {
-    height: 120px;
-  }
-
-  .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
 }
 
 /* === PROJEKTSIDOR (GEMENSAM DESIGN) === */
@@ -1024,7 +987,6 @@ footer {
   font-family: "Noto Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #222;
   margin-bottom: 2rem;
   text-align: center; 
 }
@@ -1127,8 +1089,8 @@ footer {
 
 /* Gemensam ikon-klass för alla png-ikoner */
 .box-icon {
-  width: 8rem;
-  height: 2rem;
+  width: auto;
+  height: 10px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -1360,10 +1322,10 @@ footer {
   }
 
   .right-contributions {
-    display: flex;           /* säkerställ flex */
+    display: flex;       
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start; /* toppjustera blocken */
+    align-items: flex-start; 
   }
 
   .contribution-block {
@@ -1954,12 +1916,12 @@ footer {
   transition: transform 0.3s ease;
 }
 
-@keyframes bounce {
+@keyframes bounceY {
   0%, 100% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(-10px);
+    transform: translateY(2rem); 
   }
 }
 
