@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("JS laddad och DOM är redo");
     // === Scroll-funktion för pilen ===
     const scrollIndicator = document.querySelector(".scroll-down-indicator");
     const scrollText = document.querySelector(".scroll-text");
@@ -321,32 +322,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // === MODAL BILDGALLERI ===
     const galleryImages = document.querySelectorAll('.misc-gallery-grid img');
     if (galleryImages.length > 0) {
-      const modal = document.getElementById('modal');
-      if (!modal) return;
-  
-      const modalImg = modal.querySelector('img');
-      const modalClose = modal.querySelector('.modal-close');
-  
-      galleryImages.forEach(img => {
-        img.addEventListener('click', () => {
-          modalImg.src = img.src;
-          modalImg.alt = img.alt;
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-  
-      modalClose.addEventListener('click', () => {
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
-  
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-        }
-      });
+    const modal = document.getElementById('modal');
+    if (!modal) return;
+
+    const modalImg = modal.querySelector('img');
+    const modalClose = modal.querySelector('.modal-close');
+    const nextBtn = modal.querySelector('.modal-next');
+    const prevBtn = modal.querySelector('.modal-prev');
+
+
+    let currentIndex = 0;
+
+    function openModal(index) {
+      console.log("openModal called with index:", index);  // Logga anropet med index
+      currentIndex = index;
+      modalImg.src = galleryImages[currentIndex].src;
+      modalImg.alt = galleryImages[currentIndex].alt;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
-  });
+    
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+      modalImg.alt = '';
+      document.body.style.overflow = '';
+    }
+
+    function showNext() {
+     currentIndex = (currentIndex + 1) % galleryImages.length;
+      modalImg.src = galleryImages[currentIndex].src;
+     modalImg.alt = galleryImages[currentIndex].alt;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      modalImg.src = galleryImages[currentIndex].src;
+      modalImg.alt = galleryImages[currentIndex].alt;
+    }
+
+    galleryImages.forEach((img, index) => {
+     img.addEventListener('click', () => openModal(index));
+    });
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+     if (e.target === modal) closeModal();
+    });
+
+    nextBtn?.addEventListener('click', showNext);
+    prevBtn?.addEventListener('click', showPrev);
+
+    document.addEventListener('keydown', (e) => {
+      if (modal.getAttribute('aria-hidden') === 'false') {
+       if (e.key === 'Escape') closeModal();
+       if (e.key === 'ArrowRight') showNext();
+       if (e.key === 'ArrowLeft') showPrev();
+      }
+    });
   
+}
+});
