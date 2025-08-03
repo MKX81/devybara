@@ -1243,7 +1243,7 @@ footer {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .left-image {
@@ -1273,6 +1273,7 @@ footer {
 
 .right-contributions {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
