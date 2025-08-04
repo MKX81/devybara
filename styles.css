@@ -428,6 +428,7 @@ p {
   display: inline-block;
   width: fit-content;
   background-color: #5a5a5a;
+  box-shadow: 0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47);
   color: whitesmoke;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -438,14 +439,12 @@ p {
   cursor: pointer;
 }
 .cv-link:hover {
-  background-color: #555;
-  color: #bf6341;
-  transform: scale(1.03);
+  transform: scale(1.05);
+  box-shadow: 1.8px 3.7px 3.7px hsl(0deg 0% 0% / 0.44);
 }
 
 @media (max-width: 768px) {
-  
-  .cv-link:hover {
+    .cv-link:hover {
     background-color: #5a5a5a;
     color: whitesmoke;
     transform: none;
@@ -453,19 +452,33 @@ p {
 }
 
 /* Skills-lista */
+
+.skills-section h3{
+  padding-bottom: 0.5rem;
+  padding-top:0.5rem;
+}
 .skills-container {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 0.8rem 1rem;
-  font-family: 'Noto Sans', sans-serif;
 }
+
 .skill {
-  background-color: #f2f1df;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(245, 245, 245, 0.9);
+  padding: 0.4rem 0.8rem;
+  border-radius: 1.6rem;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  font-size: 1.15rem;
   color: #333;
+  word-break: break-word;
+  white-space: normal;
+  width: fit-content;
+  max-width: 100%;
+  flex: 0 1 auto;
 }
 
 /* Responsiv: stapla bild & info på små skärmar */
@@ -544,30 +557,47 @@ p {
   min-height: 100px;
 }
 
-
-.contact-form button {
-  display: block;
+.contact-button {
+  position: relative;
+  display: inline-block;
   width: fit-content;
-  max-width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   background-color: #5a5a5a;
   color: whitesmoke;
   border: none;
   border-radius: 0.5rem;
   font-weight: 500;
   font-size: 1rem;
-  font-family: inherit;
-  text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
   box-sizing: border-box;
+  box-shadow: 0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47);
+  overflow: hidden;
 }
 
-.contact-form button:hover {
-  background-color: #555;
-  color: #bf6341;
-  transform: scale(1.03);
+.contact-button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* så inte text/ikon fångar musen */
+  user-select: none;
+  white-space: nowrap;
 }
+
+.contact-button .icon {
+  opacity: 0;
+}
+
+.contact-button:hover .text {
+  opacity: 0;
+}
+
+.contact-button:hover .icon {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 /* BEKRÄFTELSEMEDDELANDE */
 .confirmation-message {
@@ -1027,7 +1057,6 @@ footer {
 }
 
 /* INFO-BLOCKS */
-/* ===== Info-block (övriga sektioner) ===== */
 .info-block {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
