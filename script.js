@@ -383,20 +383,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailsDiv = document.getElementById('cookieDetails');
 
   // Visa bannern om inget samtycke sparat
+  const youtubeVideos = document.querySelectorAll('iframe.youtube-video');
   const savedConsent = localStorage.getItem('cookiesConsent');
   if (savedConsent === 'accepted') {
     banner.classList.add('hidden');
     loadYouTubeVideos();
   } else if (savedConsent === 'declined') {
     banner.classList.add('hidden');
+    // Hide videos if consent was previously declined
+    youtubeVideos.forEach(video => {
+      video.classList.add('hidden');
+    });
   } else {
     banner.classList.remove('hidden');
+    // Hide videos if no consent yet
+    youtubeVideos.forEach(video => {
+      video.classList.add('hidden');
+    });
   }
 
   // Funktion för att ladda YouTube-videos (exempel med placeholder)
   function loadYouTubeVideos() {
     console.log("Loading YouTube videos now.");
-    // Din kod för att ladda videos här
+    const videosToLoad = document.querySelectorAll('iframe.youtube-video');
+    videosToLoad.forEach(video => { 
+      video.src = video.dataset.src; 
+      video.classList.remove('hidden'); 
+    });
   }
 
   // Hantera samtycke och göm banner
@@ -405,6 +418,11 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.classList.add('hidden');
     if (consent === 'accepted') {
       loadYouTubeVideos();
+    } else if (consent === 'declined') {
+      // Hide and unload videos if declined
+      youtubeVideos.forEach(video => {
+        video.classList.add('hidden');
+      });
     }
   }
 
@@ -429,6 +447,14 @@ document.addEventListener('DOMContentLoaded', () => {
       detailsDiv.classList.add('hidden');
       readMoreBtn.style.display = 'inline-block';
     });
+
+    const acceptVideoCookiesBtn = document.getElementById('acceptVideoCookiesBtn');
+    if (acceptVideoCookiesBtn) {
+      acceptVideoCookiesBtn.addEventListener('click', () => {
+        console.log('Accept cookies from placeholder clicked');
+        handleConsent('accepted');
+      });
+    }
   }
 
 });
