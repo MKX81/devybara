@@ -98,7 +98,7 @@ html, body {
 
 
 header {
-  background-color: #1e1e1e;
+  background-color: #f2f1df;
   max-width: 1400px;
   width:100%;
   padding-top: env(safe-area-inset-top);
@@ -203,6 +203,10 @@ p {
 }
 
 /* === MOBILHEADER === */
+.glass-header-flow {
+  display:none;
+}
+
 .mobile-nav {
   display: none;
   position: relative;
@@ -292,48 +296,17 @@ p {
 
 /* === MEDIA QUERY: MOBILVERSION === */
 @media (max-width: 768px) {
-  .glass-header {
-    display: none;  /* Dölj desktop-header på mobil */
-  }
-
-  .glass-header-flow {
-    display: none;  /* Dölj desktopmenyn på mobil */
-  }
-
   .mobile-nav {
-    display: block; /* Visa mobilmenyn */
+    display: block;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0; 
   }
 
-  .mobile-logo img {
-    height: 4rem;
+  .mobile-logo {
+    display: none;
   }
   
-  .mobile-nav {
-    justify-content: center;
-  }
-}
-
-/* === MEDIA QUERY: MOBILVERSION === */
-@media (max-width: 768px) {
-  .glass-header {
-    display: none;  /* Dölj desktop-header på mobil */
-  }
-
-  .glass-header-flow {
-    display: none;  /* Dölj desktopmenyn på mobil */
-  }
-
-  .mobile-nav {
-    display: block; /* Visa mobilmenyn */
-  }
-
-  .mobile-logo img {
-    height: 4rem;
-  }
-  
-  .mobile-nav {
-    justify-content: center;
-  }
 }
 
 
