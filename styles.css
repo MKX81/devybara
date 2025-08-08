@@ -14,6 +14,85 @@ html, body {
   min-height: 100vh;
   
 }
+
+/* COOKIES */
+
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  margin:0;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  max-width: 1400px;
+  background: rgba(245, 245, 245, 0.9);
+  color: #222;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1000;
+}
+
+.cookie-banner p {
+  margin: 0;
+  color: #222;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cookie-banner button {
+  margin-left: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  transition: background-color 0.3s ease;
+}
+
+.cookie-banner button:hover {
+  background-color: orange;
+}
+
+/* Read more and close details buttons look like links */
+.cookie-banner button.read-more-btn {
+  font-size: 0.7rem;
+  font-weight: 300;
+  background: #333; 
+  color: whitesmoke;
+}
+
+.close-details-container {
+  text-align: center;
+  width: 100%;
+}
+.cookie-banner button.close-details-btn {
+  background: #333;
+  color: whitesmoke;
+  font-size: 0.7rem;
+  margin: 2rem;
+}
+
+.cookie-banner button.close-details-btn:hover {
+  background: #333;
+}
+
+
+.cookie-details {
+  margin-top: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
 header {
   background-color: #1e1e1e;
   max-width: 1400px;
