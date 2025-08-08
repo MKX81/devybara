@@ -38,7 +38,6 @@
     </div>
   </div>
 
-  
   <div class="mobile-nav">
     <div class="mobile-logo">
       <a href="index.html">
@@ -90,15 +89,22 @@
     </div>
   
     <div class="projectpage-video-start fade-in-section">
+      <div class="youtube-video-placeholder" id="youtubePlaceholder">
+        <p>Please accept cookies to view this video.</p>
+        <button id="acceptVideoCookiesBtn">Accept cookies</button>
+      </div>
       <iframe
-  class="youtube-video"
-  data-src="https://www.youtube.com/embed/ji5uzJGvd5Q?controls=0&modestbranding=1&rel=0&autoplay=0"
-  src=""
-  frameborder="0" 
-  allow="autoplay; encrypted-media" 
-  allowfullscreen>
-</iframe>
+        class="youtube-video hidden"
+        id="youtubeIframe"
+        data-src="https://www.youtube.com/embed/ji5uzJGvd5Q?controls=0&modestbranding=1&rel=0&autoplay=0"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
     </div>
+    
+    
   
   </section>
 
