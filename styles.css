@@ -1986,8 +1986,8 @@ footer {
 .modal-content img {
   display: block;
   margin: auto;
-  max-width: min(80%, 1500px);
-  max-height: min(50%, 800px);
+  max-width: min(80%, 1000px);
+  max-height: min(50%, 400px);
   width: auto;
   height: auto;
   object-fit: contain;
