@@ -203,9 +203,6 @@ p {
 }
 
 /* === MOBILHEADER === */
-.glass-header-flow {
-  display:none;
-}
 
 .mobile-nav {
   display: none;
@@ -296,6 +293,10 @@ p {
 
 /* === MEDIA QUERY: MOBILVERSION === */
 @media (max-width: 768px) {
+  .glass-header-flow {
+    display: none;
+  }
+
   .mobile-nav {
     display: block;
     justify-content: center;
