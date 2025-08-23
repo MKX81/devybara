@@ -94,6 +94,49 @@
       </div>
     </div>
   </section>
+
+  <section class="my-values-formula">
+    <div class="container">
+      <h2>My Values</h2>
+  
+      <div class="formula">
+        <div class="value-box">
+          <i class="fas fa-user"></i>
+          <h3>User First</h3>
+          <p>The needs, experience, and satisfaction of the user guides every decision.</p>
+        </div>
+        <div class="operator">+</div>
+  
+        <div class="value-box">
+          <i class="fas fa-bullseye"></i>
+          <h3>Goal orientation</h3>
+          <p>Clear and strategic task planning is crucial for reaching client goals.</p>
+        </div>
+        <div class="operator">+</div>
+  
+        <div class="value-box">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Creative solutions</h3>
+          <p>With my background in art I have a different approach to technical problem solving.</p>
+        </div>
+        <div class="operator">+</div>
+  
+        <div class="value-box">
+          <i class="fas fa-handshake"></i>
+          <h3>Harmonic cooperation</h3>
+          <p>For a successful project I adopt clear and friendly communication.</p>
+        </div>
+      </div>
+  
+      <div class="result">
+        <div class="operator">=</div>
+        <div class="success-text">
+          <i class="fas fa-trophy"></i>
+          <h3>Success</h3>
+        </div>
+      </div>
+    </div>
+  </section>
   
 
   <section class="quote-carousel">
@@ -156,30 +199,54 @@
 
 <footer>
   <div class="social-footer">
-    <a
-      href="https://github.com/yourusername"
-      target="_blank"
-      aria-label="GitHub"
-    >
-      <i class="fab fa-github"></i>
+    <a href="https://www.linkedin.com/in/thiagosd/" target="_blank" aria-label="LinkedIn">
+      <img src="images/InBug-White.png" alt="LinkedIn" class="icon-img">
     </a>
-    <a
-      href="https://linkedin.com/in/yourusername"
-      target="_blank"
-      aria-label="LinkedIn"
-    >
-      <i class="fab fa-linkedin"></i>
+
+    <a href="https://sketchfab.com/" target="_blank" aria-label="Sketchfab">
+      <img src="images/sketchfab-logo-white.png" alt="Sketchfab" class="icon-img">
     </a>
-    <a href="mailto:your.email@example.com" aria-label="Email">
-      <i class="fas fa-envelope"></i>
+
+    <a href="https://github.com/devybara" target="_blank" aria-label="GitHub">
+      <img src="images/Github-white.png.png" alt="GitHub" class="icon-img">
     </a>
-    <a href="https://www.artstation.com/yourusername" target="_blank" aria-label="ArtStation">
-     <i class="fa-brands fa-artstation"></i>
-   </a>
+
+    <a href="https://www.artstation.com/artybara" target="_blank" aria-label="ArtStation">
+      <img src="images/artstation-white.png.png" alt="ArtStation" class="icon-img">
+    </a>
+
+    <a href="mailto:thiagosenadantas@gmail.com" aria-label="Email">
+      <img src="images/email.png" alt="Email" class="icon-img">
+    </a>
   </div>
-  <div class="copyright-text">&copy; 2025 Thiago Sena</div>
+
+  <!-- Undre raden: copyright -->
+  <div class="copyright-text">
+    &copy; 2025 Thiago Sena
+  </div>
 </footer>
 
 <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.value-box, .operator, .success-text');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // lägg till delay baserat på ordningen
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200); // 200ms mellan varje element
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(item => observer.observe(item));
+});
+  </script>
+  
+
 </body>
 </html>
