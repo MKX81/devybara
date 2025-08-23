@@ -552,15 +552,16 @@ p {
   }
 }
 
-/* CONTACT*/
+/* ===========================
+   KONTAKTSEKTION WRAPPER
+=========================== */
 .contact-wrapper {
   margin: 0 auto;
   width: 100%;
   max-width: 1400px;
   padding: 1rem;
   box-sizing: border-box;
-  border-radius: 0;
-  background-color:#f2e0c2;;
+  background-color: #f2e0c2;
   color: #222;
   font-family: 'Noto Sans', sans-serif;
   display: flex;
@@ -569,7 +570,7 @@ p {
 }
 
 .contact-wrapper h1 {
-  font-family: "Not Sans", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #222;
@@ -577,16 +578,9 @@ p {
   margin: 0 auto;
 }
 
-.contact-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-  justify-content: space-between;
-}
-
-/* FORMULÄRET TILL VÄNSTER */
+/* ===========================
+   KONTAKTFORMULÄR
+=========================== */
 .contact-form {
   flex: 1 1 60%;
   display: flex;
@@ -614,49 +608,32 @@ p {
   min-height: 100px;
 }
 
-.contact-button {
-  position: relative;
-  display: inline-block;
-  width: fit-content;
-  padding: 1rem 2rem;
+/* Knapp */
+.contact-form button {
+  display: inline-block;       /* låter knappen krympa till text + padding */
+  width: auto;
+  padding: 0.75rem 1.5rem;
   background-color: #5a5a5a;
   color: whitesmoke;
   border: none;
   border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  align-self: flex-start;      /* viktig: för flex-parent */
   font-weight: 500;
   font-size: 1rem;
-  cursor: pointer;
-  box-sizing: border-box;
   box-shadow: 0.9px 1.8px 1.8px hsl(0deg 0% 0% / 0.47);
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.contact-button span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease;
-  pointer-events: none; /* så inte text/ikon fångar musen */
-  user-select: none;
-  white-space: nowrap;
+.contact-form button:hover {
+  background-color: #333;
+  color: whitesmoke;
 }
 
-.contact-button .icon {
-  opacity: 0;
-}
-
-.contact-button:hover .text {
-  opacity: 0;
-}
-
-.contact-button:hover .icon {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
-/* BEKRÄFTELSEMEDDELANDE */
+/* ===========================
+   BEKRÄFTELSEMEDDELANDE
+=========================== */
 .confirmation-message {
   margin-top: 1rem;
   padding: 1rem;
@@ -680,7 +657,6 @@ p {
   animation: fadeOut 0.5s ease-in forwards;
 }
 
-/* ANIMATIONER */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -691,14 +667,16 @@ p {
   to { opacity: 0; }
 }
 
-/* KONTAKTINFO TILL HÖGER */
+/* ===========================
+   KONTAKTINFO
+=========================== */
 .contact-info {
   flex: 1 1 35%;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
   min-width: 200px;
   font-size: 1rem;
@@ -727,24 +705,32 @@ p {
   left: 0;
   top: 0;
   width: 3px;
-  height: 0;               /* startar med höjd 0 */
+  height: 0;
   background-color: #bf6341;
-  opacity: 1;              /* behåll synlig men höjden är 0 */
+  opacity: 1;
   transition: height 0.3s ease;
 }
 
 .contact-info a:hover::before {
-  height: 100%;           /* väx till full höjd */
+  height: 100%;
 }
 
-
-.contact-info i {
-  font-size: 1.2rem;
+.contact-info a img.icon-img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
 }
 
+/* ===========================
+   RESPONSIV DESIGN
+=========================== */
 @media (max-width: 768px) {
-  .contact-content {
-    flex-direction: column;
+  .contact-wrapper h1 {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+
+  .contact-wrapper {
     gap: 1.5rem;
   }
 
@@ -755,32 +741,23 @@ p {
   }
 
   .contact-info {
-    align-items: center;      /* centrera innehållet */
+    align-items: center;
     text-align: center;
   }
 
   .contact-info a {
-    padding-left: 0;          /* ta bort padding-left för linjen */
+    padding-left: 0;
   }
 
   .contact-info a::before {
-    display: none;            /* ta bort linjen */
-  }
-
-  .contact-wrapper h1 {
-    font-size: 2rem;
-    padding: 0 1rem;
+    display: none;
   }
 
   .contact-form button {
-    width: 100%;
-    text-align: center;
-
-  }
-  .contact-form button:hover {
-    transform: none;
-    color: whitesmoke;
-    background-color: #5a5a5a;
+    display: inline-block;
+    width: auto;
+    padding: 0.75rem 1.5rem;
+    align-self: center; /* centrerar knappen på mobil */
   }
 }
 
@@ -913,29 +890,42 @@ p {
 /* === FOOTER === */
 footer {
   background-color: #1e1e1e;
-  width:100%;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0.5rem 0;
   text-align: center;
   color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.social-footer a {
-  color: whitesmoke;
-  font-size: 1.8rem;
-  transition: color 0.3s ease;
-  text-decoration: none;
+
+.social-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;     
+  margin-bottom: 0.5rem;
 }
 
-.social-footer a:hover {
-  color: #bf6341;
+.social-footer .icon-img {
+  height: 1.5rem;    
+  width: auto;      
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.social-footer a:hover .icon-img {
+  transform: scale(1.1);
 }
 
 .copyright-text {
   font-size: 0.8rem;
-  color: whitesmoke;
+  color: white;
 }
+
 
 /* CITAT */
 
@@ -1006,6 +996,13 @@ footer {
   background-size: cover;        
   background-position: center;  
   background-repeat: no-repeat;
+}
+
+.projectpage-title-start {
+  position: relative;
+  z-index: 2; /* högre än videon och bakgrunden */
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 
 .projectpage-title-start h1 {
@@ -1082,6 +1079,46 @@ footer {
 .hidden {
   display: none !important;
 }
+
+.projectpage-start-atomic-match {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.projectpage-start-atomic-match .background-blur {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/Periodic Table 3D model.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: 0;
+}
+
+.projectpage-video-start-mp4 {
+  position: relative; /* ovanpå blur-lagret */
+  z-index: 1;
+  width: 60%;
+  max-width: 1400px;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: black;
+}
+
+.projectpage-video-start-mp4 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 
 @media (max-width: 768px) {
   .projectpage-start {
