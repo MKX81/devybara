@@ -1996,7 +1996,9 @@ footer {
   transform: scale(1.05);
 }
 
-/* Modal-stil */
+/* ===========================
+   MODAL-STIL
+=========================== */
 .modal {
   position: fixed;
   top: 0;
@@ -2014,17 +2016,19 @@ footer {
   display: flex;
 }
 
+/* Innehållsbox */
 .modal-content {
   position: relative;
   max-width: 90%;
   max-height: 90%;
 }
 
+/* Bild i modal */
 .modal-content img {
   display: block;
   margin: auto;
-  max-width: min(80%, 1000px);
-  max-height: min(50%, 400px);
+  max-width: 80vw;
+  max-height: 80vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -2032,6 +2036,7 @@ footer {
   box-shadow: 0 0 15px rgba(255,255,255,0.2);
 }
 
+/* Stäng-knapp */
 .modal-close {
   position: absolute;
   top: -10px;
@@ -2048,36 +2053,39 @@ footer {
   transition: color 0.3s ease;
 }
 
+/* Fasta pilar (relativt till .modal, alltså alltid samma plats på skärmen) */
 .modal-prev,
 .modal-next {
-  position: absolute;
+  position: fixed;          /* fixed = alltid på skärmen */
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  color: rgba(255, 255, 255, 0.4); /* Halvtransparent vit färg */
-  font-size: 1.2rem; 
-  padding: 0.2rem 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;          /* gör dem lättare att klicka */
+  padding: 0.5rem;
   cursor: pointer;
   border-radius: 4px;
   user-select: none;
-  z-index: 10;
+  z-index: 3000;            /* över modal-content */
   transition: color 0.3s ease;
   background: transparent;
 }
 
 .modal-prev {
-  left: 4px;
+  left: 20px;               /* alltid 20px från vänster kant av skärmen */
 }
 
 .modal-next {
-  right: 4px;
+  right: 20px;              /* alltid 20px från höger kant av skärmen */
 }
 
+/* Hover-effekter */
 .modal-prev:hover,
 .modal-next:hover,
 .modal-close:hover {
   color: rgba(255, 255, 255, 0.9);
 }
+
 
 /*BACK TO PROJECTS*/
 .back-to-projects {
