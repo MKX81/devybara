@@ -172,3 +172,42 @@
   }
   
 }
+
+/* === FOOTER === */
+footer {
+  background-color: #1e1e1e;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  text-align: center;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.social-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;     
+  margin-bottom: 0.5rem;
+}
+
+.social-footer .icon-img {
+  height: 1.5rem;    
+  width: auto;      
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.social-footer a:hover .icon-img {
+  transform: scale(1.1);
+}
+
+.copyright-text {
+  font-size: 0.8rem;
+  color: white;
+}
