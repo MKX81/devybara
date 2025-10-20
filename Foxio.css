@@ -1,0 +1,38 @@
+/* === PROJEKTSIDOR (FOXIO DESIGN) === */
+.projectpage-start-foxio {
+  padding: 1rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  background-color: grey;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  background-image: url('foxio_images/foxio-background.png');
+  background-size: cover;        
+  background-position: center;  
+  background-repeat: no-repeat;
+}
+
+.foxio-title {
+  position: relative;
+  z-index: 2; /* högre än videon och bakgrunden */
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.foxio-title h1 {
+  padding: 1rem 2rem;
+  display: inline-block;
+  min-width:60%;
+  max-width: 90%;
+  background-color: transparent;
+  border-radius: 1.5rem;
+  color: #f2b885;
+  font-weight: 1000;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.3rem;
+}
+
